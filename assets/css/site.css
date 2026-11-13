@@ -372,3 +372,17 @@ p{margin:0 0 1em}
 @media (max-width:860px){
   .site-nav{background:var(--sky); border-top:1px solid var(--sky-line); border-bottom:1px solid var(--sky-line)}
 }
+
+/* Whole site on the light cyan background */
+body{background:var(--sky)}
+.story,.projects,.why,.process,.flats-strip,.be-checks,.form-page,.project,.message-page{background:var(--sky)}
+.projects,.why,.process,.flats-strip,.related{border-top:1px solid var(--sky-line)}
+.step-n{background:var(--sky)}
+.flats-strip{color:var(--ink)}
+.flats-strip p{color:#38444E}
+.flats-strip .btn-primary{background:var(--green); color:var(--white)}
+.flats-strip .btn-primary:hover{background:var(--green-deep)}
+.flats-strip .btn-ghost{color:var(--ink)}
+.flats-strip .btn-ghost:hover{background:var(--ink); color:var(--white); border-color:var(--ink)}
+.flats-be a{color:var(--ink)}
+.chip{background:var(--white)}
