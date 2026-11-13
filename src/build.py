@@ -317,8 +317,10 @@ def project_card(p, lang, up, href_prefix, heading="h3"):
     return f"""<li class="card" data-type="{typ}">
   <a href="{href_prefix}projects/{slug}/">
     <div class="card-img">{img_tag(slug, alt_for(p, lang), up, focus)}</div>
-    <{heading} class="card-name">{E(pick(name, lang))}</{heading}>
-    <span class="card-meta">{E(pick(TYPES[typ], lang))}</span>{locs}
+    <div class="card-body">
+      <{heading} class="card-name">{E(pick(name, lang))}</{heading}>
+      <span class="card-meta">{E(pick(TYPES[typ], lang))}</span>{locs}
+    </div>
   </a>
 </li>"""
 
@@ -339,8 +341,8 @@ def home(lang):
     out = head(lang, depth, t("meta_title", lang), t("meta_desc", lang), "", jsonld=org_jsonld(lang))
     out += header(lang, depth, "")
     out += f"""<section class="hero">
+  <h1 class="hero-title">{t('h1', lang)}</h1>
   <div class="hero-text">
-    <h1>{t('h1', lang)}</h1>
     <p>{t('hero_p', lang)}</p>
     <div class="hero-actions">
       <a class="btn btn-wa" href="{wa_link(t('wa_text', lang))}" target="_blank" rel="noopener">{ICON_WA}{t('whatsapp_us', lang)}</a>
