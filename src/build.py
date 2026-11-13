@@ -21,6 +21,54 @@ UI = {
     "nav_services": ("Services", "সেবা"),
     "nav_process": ("Process", "কাজের ধাপ"),
     "nav_contact": ("Contact", "যোগাযোগ"),
+    "be_name": ("Buyer's Engineer", "ক্রেতার প্রকৌশলী"),
+    "be_meta": ("Not sure which flat to buy? JJ Works engineers visit the flats on your shortlist and give you a written report comparing them.",
+                "কোন ফ্ল্যাট কিনবেন ঠিক করতে পারছেন না? জেজে ওয়ার্কসের প্রকৌশলীরা আপনার পছন্দের ফ্ল্যাটগুলো দেখে তুলনামূলক লিখিত রিপোর্ট দেন।"),
+    "be_lede": ("Not sure which flat to buy? Our engineers visit the flats on your shortlist, check them properly, and give you a written report comparing them, so you know which one is worth the money.",
+                "কোন ফ্ল্যাট কিনবেন ঠিক করতে পারছেন না? আমাদের প্রকৌশলীরা আপনার পছন্দের ফ্ল্যাটগুলো সরেজমিনে দেখে ভালোভাবে যাচাই করেন এবং তুলনামূলক লিখিত রিপোর্ট দেন, যাতে বুঝতে পারেন কোনটি দামের যোগ্য।"),
+    "be_fee": ("Fee: price on request. It depends on how many flats you want checked and where they are.",
+               "ফি: অনুরোধ সাপেক্ষে। কয়টি ফ্ল্যাট দেখতে হবে এবং কোথায়, তার ওপর নির্ভর করে।"),
+    "be_check_h": ("What we check at each flat", "প্রতিটি ফ্ল্যাটে আমরা যা দেখি"),
+    "be_checks": ([("Structure", "Visible cracks, columns and beams, signs of settlement or poor concrete work."),
+                   ("Damp and leaks", "Walls, ceilings, bathrooms and the roof for seepage and water damage."),
+                   ("Build and finishing quality", "Floors, walls, doors, windows and workmanship."),
+                   ("Plumbing, electrical and sanitary", "Wiring, switchboards, pipes, fittings and drainage."),
+                   ("Layout, light and air", "How well the space works, daylight and ventilation."),
+                   ("Building facilities", "Lift, generator, parking, water supply and fire safety."),
+                   ("Approval papers", "Whether the building matches its RAJUK approved plan. For ownership papers we recommend a lawyer."),
+                   ("Price for what you get", "Price per square foot compared across your shortlist and the area.")],
+                  [("কাঠামো", "দৃশ্যমান ফাটল, কলাম ও বিম, দেবে যাওয়া বা দুর্বল ঢালাইয়ের লক্ষণ।"),
+                   ("স্যাঁতসেঁতে ও লিকেজ", "দেয়াল, ছাদ, বাথরুম ও ছাদে পানি চুঁইয়ে পড়া ও ক্ষতি।"),
+                   ("নির্মাণ ও ফিনিশিংয়ের মান", "মেঝে, দেয়াল, দরজা, জানালা ও কারিগরি মান।"),
+                   ("প্লাম্বিং, বৈদ্যুতিক ও স্যানিটারি", "ওয়্যারিং, সুইচবোর্ড, পাইপ, ফিটিংস ও ড্রেনেজ।"),
+                   ("লেআউট, আলো ও বাতাস", "জায়গার ব্যবহার, দিনের আলো ও বায়ু চলাচল।"),
+                   ("ভবনের সুবিধা", "লিফট, জেনারেটর, পার্কিং, পানি সরবরাহ ও অগ্নি নিরাপত্তা।"),
+                   ("অনুমোদনের কাগজ", "ভবনটি রাজউক অনুমোদিত নকশা অনুযায়ী কি না। মালিকানার কাগজের জন্য আইনজীবীর পরামর্শ নিন।"),
+                   ("দাম অনুযায়ী মান", "আপনার পছন্দের ফ্ল্যাট ও এলাকার সাথে প্রতি বর্গফুটের দামের তুলনা।")]),
+    "be_get_h": ("What you get", "আপনি যা পাবেন"),
+    "be_gets": (["A written report comparing every flat side by side, with photos",
+                 "Clear notes on problems found and what they would cost to fix",
+                 "Our recommendation on which flat is the best buy, and why",
+                 "A call or meeting with the engineer to go through the report"],
+                ["প্রতিটি ফ্ল্যাটের পাশাপাশি তুলনাসহ ছবিযুক্ত লিখিত রিপোর্ট",
+                 "পাওয়া সমস্যা ও তা ঠিক করতে আনুমানিক খরচের স্পষ্ট বিবরণ",
+                 "কোন ফ্ল্যাটটি কেনা সবচেয়ে ভালো এবং কেন, আমাদের সুপারিশ",
+                 "রিপোর্ট বুঝিয়ে দিতে প্রকৌশলীর সাথে ফোন বা সাক্ষাৎ"]),
+    "be_steps_h": ("How it works", "যেভাবে কাজ হয়"),
+    "be_steps": (["Send us your shortlist of flats", "We quote a fee and fix visit dates", "Our engineer visits each flat", "You get the comparison report"],
+                 ["আপনার পছন্দের ফ্ল্যাটগুলোর তালিকা পাঠান", "আমরা ফি জানাই ও পরিদর্শনের তারিখ ঠিক করি", "আমাদের প্রকৌশলী প্রতিটি ফ্ল্যাট দেখেন", "আপনি তুলনামূলক রিপোর্ট পান"]),
+    "be_form_h": ("Request a Buyer's Engineer visit", "ক্রেতার প্রকৌশলী পরিদর্শনের অনুরোধ"),
+    "be_count": ("How many flats?", "কয়টি ফ্ল্যাট?"),
+    "be_flats": ("Address of each flat", "প্রতিটি ফ্ল্যাটের ঠিকানা"),
+    "be_flats_ph": ("One per line, e.g.\n1. Road 5, South Badda, 4th floor\n2. Block C, Banasree, 6th floor",
+                    "প্রতি লাইনে একটি, যেমন:\n১. রোড ৫, দক্ষিণ বাড্ডা, ৪র্থ তলা\n২. ব্লক সি, বনশ্রী, ৬ষ্ঠ তলা"),
+    "be_budget": ("Your budget (taka)", "আপনার বাজেট (টাকা)"),
+    "be_dates": ("Good days for the visits", "পরিদর্শনের সুবিধাজনক দিন"),
+    "be_send": ("Request a quote", "ফি জানতে অনুরোধ পাঠান"),
+    "be_subject": ("New Buyer's Engineer request from jjworks.bd", "jjworks.bd থেকে নতুন ক্রেতার প্রকৌশলী অনুরোধ"),
+    "be_cta": ("Not sure which flat to buy? Our engineers will compare them for you.", "কোন ফ্ল্যাট কিনবেন বুঝতে পারছেন না? আমাদের প্রকৌশলীরা তুলনা করে দেবেন।"),
+    "be_link": ("About Buyer's Engineer", "ক্রেতার প্রকৌশলী সম্পর্কে জানুন"),
+    "be_wa": ("Hello JJ Works, I would like your Buyer's Engineer service to compare some flats.", "আসসালামু আলাইকুম, কয়েকটি ফ্ল্যাট তুলনা করতে ক্রেতার প্রকৌশলী সেবা নিতে চাই।"),
     "nav_buy": ("Buy a flat", "ফ্ল্যাট কিনুন"),
     "nav_sell": ("Sell a flat", "ফ্ল্যাট বিক্রি"),
     # flats strip on home page
@@ -414,6 +462,7 @@ def home(lang):
         c = sum(1 for p in PROJECTS if p[3] == k)
         filters += f'<button type="button" class="chip" aria-pressed="false" data-filter="{k}">{E(pick(v, lang))} <span>{num(c, lang)}</span></button>'
     services = "".join(f"<li><h3>{E(pick(s[0], lang))}</h3><p>{E(pick(s[1], lang))}</p></li>" for s in SERVICES)
+    services += f'<li><h3><a href="buyers-engineer/">{t("be_name", lang)}</a></h3><p>{t("be_cta", lang)}</p></li>'
     reasons = "".join(f"<li><h3>{E(pick(r[0], lang))}</h3><p>{E(pick(r[1], lang))}</p></li>" for r in REASONS)
     steps = "".join(f'<li><span class="step-n">{num(i + 1, lang)}</span><h3>{E(pick(s[0], lang))}</h3><p>{E(pick(s[1], lang))}</p></li>' for i, s in enumerate(PROCESS))
     main_phone = PEOPLE[0]["phones"][0]
@@ -466,6 +515,7 @@ def home(lang):
       <a class="btn btn-primary" href="buy/">{t('flats_buy_cta', lang)}</a>
       <a class="btn btn-ghost" href="sell/">{t('flats_sell_cta', lang)}</a>
     </div>
+    <p class="flats-be"><a href="buyers-engineer/">{t('be_cta', lang)}</a></p>
   </div>
 </section>
 
@@ -728,6 +778,7 @@ def buy_page(lang):
       </div>
       <a class="btn btn-ghost" href="{home}sell/">{t('buy_selling', lang)}</a>
     </div>
+    <a class="be-banner" href="{home}buyers-engineer/"><strong>{t('be_name', lang)}</strong><span>{t('be_cta', lang)}</span></a>
     {listing_html}
     <div class="buy-form-wrap" id="flat-enquiry">
       <h2>{t('b_form_h', lang)}</h2>
@@ -753,12 +804,74 @@ def buy_page(lang):
     simple_page(lang, "buy/", f"{t('buy_title', lang)} | JJ Works", t("buy_meta", lang), body)
 
 
+def be_page(lang):
+    checks = "".join(f"<li><h3>{E(a)}</h3><p>{E(b)}</p></li>" for a, b in t("be_checks", lang))
+    gets = "".join(f"<li>{E(x)}</li>" for x in t("be_gets", lang))
+    steps = "".join(f'<li><span class="step-n">{num(i + 1, lang)}</span>{E(x)}</li>' for i, x in enumerate(t("be_steps", lang)))
+    counts = "".join(f"<option>{num(n, lang)}</option>" for n in (2, 3, 4)) + f"<option>{num(5, lang)}+</option>"
+    nxt = page_url(lang, "thanks/")
+
+    def body(up, home):
+        return f"""<section class="be-hero">
+  <div class="wrap be-hero-grid">
+    <div>
+      <h1>{t('be_name', lang)}</h1>
+      <p class="be-lede">{t('be_lede', lang)}</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#be-request">{t('be_send', lang)}</a>
+        <a class="btn btn-wa" href="{wa_link(t('be_wa', lang))}" target="_blank" rel="noopener">{ICON_WA}{t('whatsapp', lang)}</a>
+      </div>
+      <p class="be-fee">{t('be_fee', lang)}</p>
+    </div>
+    <div class="be-steps-box">
+      <h2>{t('be_steps_h', lang)}</h2>
+      <ol class="mini-steps">{steps}</ol>
+    </div>
+  </div>
+</section>
+<section class="be-checks">
+  <div class="wrap">
+    <h2>{t('be_check_h', lang)}</h2>
+    <ul class="check-grid">{checks}</ul>
+  </div>
+</section>
+<section class="be-get">
+  <div class="wrap be-get-grid">
+    <div>
+      <h2>{t('be_get_h', lang)}</h2>
+      <ul class="tick-list">{gets}</ul>
+    </div>
+    <div class="buy-form-wrap" id="be-request">
+      <h2>{t('be_form_h', lang)}</h2>
+      <form class="enquiry" action="{FORM_ACTION}" method="POST">
+        <input type="hidden" name="_subject" value="{E(t('be_subject', lang))}">
+        <input type="hidden" name="_next" value="{nxt}">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="form" value="Buyer's Engineer ({'English' if lang == 'en' else 'Bangla'} page)">
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label>{t('f_name', lang)}<input name="name" required autocomplete="name"></label>
+        <label>{t('f_phone', lang)}<input name="phone" type="tel" required autocomplete="tel" inputmode="tel" pattern="[0-9+ \\-]{{8,}}"></label>
+        <label>{t('f_email', lang)}<input name="email" type="email" autocomplete="email"></label>
+        <label>{t('be_count', lang)}<select name="number_of_flats">{counts}</select></label>
+        <label class="full">{t('be_flats', lang)}<textarea name="flat_addresses" rows="4" required placeholder="{E(t('be_flats_ph', lang)).replace(chr(92) + 'n', '&#10;')}"></textarea></label>
+        <label>{t('be_budget', lang)}<input name="budget_bdt" type="number" min="0" step="1000" inputmode="numeric"></label>
+        <label>{t('be_dates', lang)}<input name="visit_days"></label>
+        <label class="full">{t('f_message', lang)}<textarea name="message" rows="3"></textarea></label>
+        <div class="full form-foot"><button class="btn btn-primary" type="submit">{t('be_send', lang)}</button><small>{t('f_note', lang)}</small></div>
+      </form>
+    </div>
+  </div>
+</section>
+"""
+    simple_page(lang, "buyers-engineer/", f"{t('be_name', lang)} | JJ Works", t("be_meta", lang), body)
+
+
 def not_found():
     # Served from any URL, so it uses absolute paths.
     out = head("en", 0, "Page not found | JJ Works", t("nf_p", "en"), "")
     out = out.replace('href="favicon', 'href="/favicon').replace('href="apple-touch', 'href="/apple-touch').replace('href="assets/', 'href="/assets/')
     out = out.replace("<meta name=\"description\"", '<meta name="robots" content="noindex">\n<meta name="description"', 1)
-    out += header("en", 0, "").replace('href="#', 'href="/#').replace('href="bn/"', 'href="/bn/"').replace('href=""', 'href="/"').replace('href="buy/"', 'href="/buy/"').replace('href="sell/"', 'href="/sell/"')
+    out += header("en", 0, "").replace('href="#', 'href="/#').replace('href="bn/"', 'href="/bn/"').replace('href=""', 'href="/"').replace('href="buy/"', 'href="/buy/"').replace('href="sell/"', 'href="/sell/"').replace('href="buyers-engineer/"', 'href="/buyers-engineer/"')
     out += f"""<section class="message-page"><div class="wrap">
   <h1>{t('nf_h', 'en')}</h1>
   <p>{t('nf_p', 'en')}</p>
@@ -771,7 +884,7 @@ def not_found():
 
 
 def sitemap():
-    paths = ["", "buy/", "sell/"] + [f"projects/{p[0]}/" for p in PROJECTS]
+    paths = ["", "buy/", "sell/", "buyers-engineer/"] + [f"projects/{p[0]}/" for p in PROJECTS]
     items = []
     for path in paths:
         for lang in LANGS:
@@ -796,8 +909,9 @@ if __name__ == "__main__":
         thanks(lang)
         sell_page(lang)
         buy_page(lang)
+        be_page(lang)
         for i in range(len(PROJECTS)):
             project_page(i, lang)
     not_found()
     sitemap()
-    print(f"Built {2 * (4 + len(PROJECTS)) + 2 + 1} pages.")
+    print(f"Built {2 * (5 + len(PROJECTS)) + 2 + 1} pages.")
