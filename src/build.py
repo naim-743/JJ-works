@@ -141,6 +141,10 @@ def tel(p):
     return "tel:+88" + p.replace("-", "").replace(" ", "")
 
 
+BADGE = open(os.path.join(ROOT, "images/brand/jjworks-badge.svg"), encoding="utf-8").read().replace(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">',
+    '<svg class="brand-badge" viewBox="0 0 100 100" aria-hidden="true" focusable="false">')
+
 ICON_WA = '<svg viewBox="0 0 24 24" aria-hidden="true" class="ico"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>'
 
 
@@ -168,7 +172,9 @@ def head(lang, depth, title, desc, path, og_image="images/og.jpg", jsonld=None):
 <meta property="og:locale" content="{'en_US' if lang == 'en' else 'bn_BD'}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#15202B">
+<link rel="icon" href="{up}favicon.ico" sizes="48x48">
 <link rel="icon" href="{up}favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{up}apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wdth,wght@75..100,500..700&family=Hind+Siliguri:wght@400;500;600&display=swap">
@@ -192,7 +198,7 @@ def header(lang, depth, path):
     other = "bn" if lang == "en" else "en"
     return f"""<header class="site-header">
   <div class="wrap bar">
-    <a class="brand" href="{home}" aria-label="JJ Works home"><span class="brand-mark" aria-hidden="true"></span>JJ Works</a>
+    <a class="brand" href="{home}" aria-label="JJ Works home">{BADGE}<span>JJ Works</span></a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">{t('menu', lang)}</button>
     <nav id="site-nav" class="site-nav" aria-label="{'Main' if lang == 'en' else 'প্রধান'}">
       <a href="{home}#projects">{t('nav_projects', lang)}</a>
@@ -248,6 +254,7 @@ def org_jsonld(lang):
         "name": "JJ Works",
         "url": page_url(lang, ""),
         "image": f"{SITE_URL}/images/og.jpg",
+        "logo": f"{SITE_URL}/images/brand/jjworks-badge-1024.png",
         "email": EMAIL,
         "telephone": "+88" + PEOPLE[0]["phones"][0].replace("-", ""),
         "founder": {"@type": "Person", "name": "Engr. Md. Abu Naim Mia", "jobTitle": "Managing Partner"},
@@ -505,7 +512,7 @@ def thanks(lang):
 def not_found():
     # Served from any URL, so it uses absolute paths.
     out = head("en", 0, "Page not found | JJ Works", t("nf_p", "en"), "")
-    out = out.replace('href="favicon.svg"', 'href="/favicon.svg"').replace('href="assets/', 'href="/assets/')
+    out = out.replace('href="favicon', 'href="/favicon').replace('href="apple-touch', 'href="/apple-touch').replace('href="assets/', 'href="/assets/')
     out = out.replace("<meta name=\"description\"", '<meta name="robots" content="noindex">\n<meta name="description"', 1)
     out += header("en", 0, "").replace('href="#', 'href="/#').replace('href="bn/"', 'href="/bn/"').replace('href=""', 'href="/"')
     out += f"""<section class="message-page"><div class="wrap">
