@@ -206,7 +206,6 @@ def header(lang, depth, path):
       <a href="{home}#process">{t('nav_process', lang)}</a>
       <a href="{home}#contact">{t('nav_contact', lang)}</a>
       <a class="lang-switch" href="{other_href}" hreflang="{other}" lang="{other}" title="{t('other_lang_label', lang)}">{t('other_lang', lang)}</a>
-      <a class="btn btn-wa btn-sm" href="{wa_link(t('wa_text', lang))}" target="_blank" rel="noopener">{ICON_WA}{t('whatsapp', lang)}</a>
     </nav>
   </div>
 </header>
