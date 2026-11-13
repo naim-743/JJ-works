@@ -349,15 +349,6 @@ def home(lang):
   </div>
   <div class="hero-visual">
     <picture><source type="image/webp" srcset="{up}images/building-exterior.webp"><img src="{up}images/building-exterior.jpg" alt="{'A residential building by JJ Works' if lang == 'en' else 'জেজে ওয়ার্কসের একটি আবাসিক ভবন'}" width="920" height="1080" fetchpriority="high"></picture>
-    <table class="titleblock">
-      <caption>{t('tb_title', lang)}</caption>
-      <tbody>
-        <tr><th scope="row">{t('tb_projects', lang)}</th><td>{num(n, lang)}</td></tr>
-        <tr><th scope="row">{t('tb_areas', lang)}</th><td>{t('tb_areas_v', lang)}</td></tr>
-        <tr><th scope="row">{t('tb_codes', lang)}</th><td>{t('tb_codes_v', lang)}</td></tr>
-        <tr><th scope="row">{t('tb_call', lang)}</th><td><a href="{tel(main_phone)}">{num(main_phone, lang)}</a></td></tr>
-      </tbody>
-    </table>
   </div>
 </section>
 
