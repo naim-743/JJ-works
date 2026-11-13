@@ -9,6 +9,7 @@ from urllib.parse import quote
 
 sys.path.insert(0, os.path.dirname(__file__))
 from data import *  # noqa
+from listings import LISTINGS
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 LANGS = ("en", "bn")
@@ -20,6 +21,81 @@ UI = {
     "nav_services": ("Services", "সেবা"),
     "nav_process": ("Process", "কাজের ধাপ"),
     "nav_contact": ("Contact", "যোগাযোগ"),
+    "nav_buy": ("Buy a flat", "ফ্ল্যাট কিনুন"),
+    "nav_sell": ("Sell a flat", "ফ্ল্যাট বিক্রি"),
+    # flats strip on home page
+    "flats_h": ("Buying or selling a flat?", "ফ্ল্যাট কিনবেন বা বিক্রি করবেন?"),
+    "flats_p": ("We list flats for sale and put buyers in touch with sellers. Every listing is checked by JJ Works before it goes online.",
+                "আমরা বিক্রয়যোগ্য ফ্ল্যাটের তালিকা দিই এবং ক্রেতা-বিক্রেতার যোগাযোগ করিয়ে দিই। প্রতিটি তালিকা অনলাইনে দেওয়ার আগে জেজে ওয়ার্কস যাচাই করে।"),
+    "flats_buy_cta": ("See flats for sale", "বিক্রয়যোগ্য ফ্ল্যাট দেখুন"),
+    "flats_sell_cta": ("List your flat", "আপনার ফ্ল্যাটের তথ্য দিন"),
+    # sell page
+    "sell_title": ("Sell your flat", "আপনার ফ্ল্যাট বিক্রি করুন"),
+    "sell_meta": ("List your flat for sale with JJ Works. Send the details and a photo; we check every listing and connect you with buyers.",
+                  "জেজে ওয়ার্কসের মাধ্যমে আপনার ফ্ল্যাট বিক্রির জন্য তালিকাভুক্ত করুন। তথ্য ও ছবি পাঠান; আমরা প্রতিটি তালিকা যাচাই করে ক্রেতার সাথে যোগাযোগ করিয়ে দিই।"),
+    "sell_intro": ("Fill in the form below. We check every listing and call you before it goes online. Your phone number is never shown on the website; buyers contact JJ Works and we put you in touch.",
+                   "নিচের ফর্মটি পূরণ করুন। প্রতিটি তালিকা অনলাইনে দেওয়ার আগে আমরা যাচাই করি এবং আপনাকে ফোন করি। আপনার ফোন নম্বর ওয়েবসাইটে কখনো দেখানো হয় না; ক্রেতারা জেজে ওয়ার্কসের সাথে যোগাযোগ করেন, আমরা আপনার সাথে যোগাযোগ করিয়ে দিই।"),
+    "sell_steps": (["Send the flat's details and a photo", "We call you to check the details", "Your flat is listed on jjworks.bd", "We pass interested buyers to you"],
+                   ["ফ্ল্যাটের তথ্য ও ছবি পাঠান", "তথ্য যাচাই করতে আমরা আপনাকে ফোন করি", "jjworks.bd-তে আপনার ফ্ল্যাট তালিকাভুক্ত হয়", "আগ্রহী ক্রেতাদের আমরা আপনার কাছে পাঠাই"]),
+    "g_flat": ("About the flat", "ফ্ল্যাটের তথ্য"),
+    "g_you": ("Your contact details", "আপনার যোগাযোগের তথ্য"),
+    "s_location": ("Flat location (area and address)", "ফ্ল্যাটের ঠিকানা (এলাকা ও ঠিকানা)"),
+    "s_location_ph": ("e.g. Road 5, South Badda, Dhaka", "যেমন: রোড ৫, দক্ষিণ বাড্ডা, ঢাকা"),
+    "s_size": ("Size (sq ft)", "আয়তন (বর্গফুট)"),
+    "s_price": ("Asking price (taka)", "চাওয়া দাম (টাকা)"),
+    "s_negotiable": ("Price is negotiable", "দাম আলোচনাসাপেক্ষ"),
+    "s_beds": ("Bedrooms", "বেডরুম"),
+    "s_baths": ("Bathrooms", "বাথরুম"),
+    "s_floor": ("Flat is on floor", "ফ্ল্যাট কত তলায়"),
+    "s_total": ("Total floors in building", "ভবনের মোট তলা"),
+    "s_fac": ("Facilities", "সুবিধাসমূহ"),
+    "s_details": ("Other details", "অন্যান্য তথ্য"),
+    "s_details_ph": ("Facing, age of building, ready to move in, nearby roads or schools…", "কোন দিকমুখী, ভবনের বয়স, উঠার জন্য প্রস্তুত কি না, কাছের রাস্তা বা স্কুল…"),
+    "s_photo": ("Photo of the building", "ভবনের ছবি"),
+    "s_photo_hint": ("One clear photo, JPG or PNG, up to 5 MB.", "একটি স্পষ্ট ছবি, JPG বা PNG, সর্বোচ্চ ৫ এমবি।"),
+    "s_photo_big": ("This photo is larger than 5 MB. Choose a smaller one, or send it to us on WhatsApp after submitting.",
+                    "ছবিটি ৫ এমবির বেশি। ছোট ছবি বেছে নিন, অথবা ফর্ম পাঠানোর পর হোয়াটসঅ্যাপে পাঠান।"),
+    "s_name": ("Your name", "আপনার নাম"),
+    "s_address": ("Your contact address", "আপনার যোগাযোগের ঠিকানা"),
+    "s_consent": ("I own this flat or have the owner's permission to sell it, and JJ Works may publish the flat details and photo (not my name or phone).",
+                  "আমি এই ফ্ল্যাটের মালিক অথবা বিক্রির জন্য মালিকের অনুমতি আছে, এবং জেজে ওয়ার্কস ফ্ল্যাটের তথ্য ও ছবি প্রকাশ করতে পারবে (আমার নাম বা ফোন নয়)।"),
+    "s_send": ("Send flat details", "ফ্ল্যাটের তথ্য পাঠান"),
+    "s_subject": ("New flat for sale from jjworks.bd", "jjworks.bd থেকে নতুন ফ্ল্যাট বিক্রির তথ্য"),
+    "st_h": ("Thank you. We have your flat's details.", "ধন্যবাদ। আপনার ফ্ল্যাটের তথ্য আমরা পেয়েছি।"),
+    "st_p": ("We will check the details and call you before the listing goes online, usually within two working days.",
+             "আমরা তথ্য যাচাই করে তালিকা অনলাইনে দেওয়ার আগে আপনাকে ফোন করব, সাধারণত দুই কর্মদিবসের মধ্যে।"),
+    # buy page
+    "buy_title": ("Flats for sale", "বিক্রয়যোগ্য ফ্ল্যাট"),
+    "buy_meta": ("Flats for sale in Dhaka and Tangail, checked by JJ Works. Contact us to visit or to speak with the seller.",
+                 "জেজে ওয়ার্কস যাচাইকৃত ঢাকা ও টাঙ্গাইলের বিক্রয়যোগ্য ফ্ল্যাট। দেখতে বা বিক্রেতার সাথে কথা বলতে যোগাযোগ করুন।"),
+    "buy_intro": ("Every flat here has been checked by JJ Works. To visit a flat or speak with the seller, message us with the listing number.",
+                  "এখানের প্রতিটি ফ্ল্যাট জেজে ওয়ার্কস যাচাই করেছে। ফ্ল্যাট দেখতে বা বিক্রেতার সাথে কথা বলতে তালিকা নম্বরসহ আমাদের মেসেজ দিন।"),
+    "buy_empty_h": ("No flats are listed right now.", "এই মুহূর্তে কোনো ফ্ল্যাট তালিকায় নেই।"),
+    "buy_empty_p": ("Tell us what you are looking for and we will contact you when a matching flat comes up.",
+                    "আপনি কী খুঁজছেন জানান, মিল আছে এমন ফ্ল্যাট এলে আমরা যোগাযোগ করব।"),
+    "buy_selling": ("Selling a flat? List it with us.", "ফ্ল্যাট বিক্রি করবেন? আমাদের কাছে তালিকাভুক্ত করুন।"),
+    "l_listing": ("Listing", "তালিকা নং"),
+    "l_size": ("Size", "আয়তন"),
+    "l_sqft": ("sq ft", "বর্গফুট"),
+    "l_rooms": ("Rooms", "রুম"),
+    "l_rooms_v": ("{b} bed, {t} bath", "{b} বেড, {t} বাথ"),
+    "l_floor": ("Floor", "তলা"),
+    "l_floor_v": ("{f} of {t}", "{t} তলার {f} তলা"),
+    "l_neg": ("negotiable", "আলোচনাসাপেক্ষ"),
+    "l_sold": ("Sold", "বিক্রি হয়ে গেছে"),
+    "l_ask": ("Ask about this flat", "এই ফ্ল্যাট সম্পর্কে জানুন"),
+    "l_form": ("Send an enquiry", "অনুসন্ধান পাঠান"),
+    "l_wa": ("Hello JJ Works, I am interested in flat {id} on jjworks.bd.", "আসসালামু আলাইকুম, jjworks.bd-এর {id} নম্বর ফ্ল্যাটটিতে আমি আগ্রহী।"),
+    "fac_parking": ("Parking", "পার্কিং"),
+    "fac_lift": ("Lift", "লিফট"),
+    "fac_generator": ("Generator", "জেনারেটর"),
+    "b_form_h": ("Tell us what you are looking for", "আপনি কী খুঁজছেন জানান"),
+    "b_listing": ("Listing number (if any)", "তালিকা নম্বর (যদি থাকে)"),
+    "b_area": ("Preferred area", "পছন্দের এলাকা"),
+    "b_budget": ("Budget (taka)", "বাজেট (টাকা)"),
+    "b_size": ("Size you need (sq ft)", "প্রয়োজনীয় আয়তন (বর্গফুট)"),
+    "b_subject": ("New flat buyer enquiry from jjworks.bd", "jjworks.bd থেকে নতুন ফ্ল্যাট ক্রেতার অনুসন্ধান"),
+
     "menu": ("Menu", "মেনু"),
     "close": ("Close", "বন্ধ"),
     "other_lang": ("বাংলা", "English"),
@@ -205,6 +281,8 @@ def header(lang, depth, path):
       <a href="{home}#projects">{t('nav_projects', lang)}</a>
       <a href="{home}#services">{t('nav_services', lang)}</a>
       <a href="{home}#process">{t('nav_process', lang)}</a>
+      <a href="{home}buy/">{t('nav_buy', lang)}</a>
+      <a href="{home}sell/">{t('nav_sell', lang)}</a>
       <a href="{home}#contact">{t('nav_contact', lang)}</a>
       <a class="lang-switch" href="{other_href}" hreflang="{other}" lang="{other}" title="{t('other_lang_label', lang)}">{t('other_lang', lang)}</a>
     </nav>
@@ -378,6 +456,19 @@ def home(lang):
   </div>
 </section>
 
+<section class="flats-strip" aria-labelledby="flats-h">
+  <div class="wrap flats-grid">
+    <div>
+      <h2 id="flats-h">{t('flats_h', lang)}</h2>
+      <p>{t('flats_p', lang)}</p>
+    </div>
+    <div class="flats-actions">
+      <a class="btn btn-primary" href="buy/">{t('flats_buy_cta', lang)}</a>
+      <a class="btn btn-ghost" href="sell/">{t('flats_sell_cta', lang)}</a>
+    </div>
+  </div>
+</section>
+
 <section class="services" id="services" aria-labelledby="services-h">
   <div class="wrap">
     <h2 id="services-h">{t('services_h', lang)}</h2>
@@ -501,12 +592,173 @@ def thanks(lang):
     write(lang_root(lang) + "thanks/index.html", out)
 
 
+def taka(n, lang):
+    """Bangladeshi grouping: 85,00,000"""
+    s = str(int(n))
+    if len(s) > 3:
+        head_, tail = s[:-3], s[-3:]
+        parts = []
+        while len(head_) > 2:
+            parts.insert(0, head_[-2:]); head_ = head_[:-2]
+        if head_: parts.insert(0, head_)
+        s = ",".join(parts) + "," + tail
+    return "৳ " + num(s, lang)
+
+
+def simple_page(lang, path, title, desc, body, noindex=False):
+    depth = (path.count("/")) + (0 if lang == "en" else 1)
+    up = "../" * depth
+    out = head(lang, depth, title, desc, path)
+    if noindex:
+        out = out.replace("<meta name=\"description\"", '<meta name="robots" content="noindex">\n<meta name="description"', 1)
+    out += header(lang, depth, path)
+    out += body(up, up + lang_root(lang))
+    out += footer(lang, depth)
+    write(lang_root(lang) + path + "index.html", out)
+
+
+def sell_page(lang):
+    steps = "".join(f'<li><span class="step-n">{num(i + 1, lang)}</span>{E(x)}</li>' for i, x in enumerate(t("sell_steps", lang)))
+    fac = "".join(f'<label class="check"><input type="checkbox" name="facility_{k}" value="yes"> {t("fac_" + k, lang)}</label>' for k in ("parking", "lift", "generator"))
+    nxt = page_url(lang, "sell/thanks/")
+
+    def body(up, home):
+        return f"""<section class="form-page">
+  <div class="wrap form-page-grid">
+    <div class="form-page-intro">
+      <h1>{t('sell_title', lang)}</h1>
+      <p>{t('sell_intro', lang)}</p>
+      <ol class="mini-steps">{steps}</ol>
+      <p class="aside-link"><a href="{home}buy/">{t('flats_buy_cta', lang)}</a></p>
+    </div>
+    <form class="enquiry sell-form" action="{FORM_ACTION}" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="_subject" value="{E(t('s_subject', lang))}">
+      <input type="hidden" name="_next" value="{nxt}">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="form" value="Flat for sale ({'English' if lang == 'en' else 'Bangla'} page)">
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <fieldset class="full" aria-labelledby="g-flat"><h2 class="group-h full" id="g-flat">{t('g_flat', lang)}</h2>
+        <label class="full">{t('s_location', lang)}<input name="flat_location" required placeholder="{E(t('s_location_ph', lang))}"></label>
+        <label>{t('s_size', lang)}<input name="size_sqft" type="number" min="100" step="1" inputmode="numeric" required></label>
+        <label>{t('s_price', lang)}<input name="asking_price_bdt" type="number" min="0" step="1000" inputmode="numeric" required></label>
+        <label class="check full"><input type="checkbox" name="price_negotiable" value="yes"> {t('s_negotiable', lang)}</label>
+        <label>{t('s_beds', lang)}<input name="bedrooms" type="number" min="0" max="20" inputmode="numeric" required></label>
+        <label>{t('s_baths', lang)}<input name="bathrooms" type="number" min="0" max="20" inputmode="numeric" required></label>
+        <label>{t('s_floor', lang)}<input name="floor" type="number" min="0" max="80" inputmode="numeric" required></label>
+        <label>{t('s_total', lang)}<input name="total_floors" type="number" min="1" max="80" inputmode="numeric" required></label>
+        <div class="full"><span class="label-text">{t('s_fac', lang)}</span><div class="checks">{fac}</div></div>
+        <label class="full">{t('s_details', lang)}<textarea name="details" rows="4" placeholder="{E(t('s_details_ph', lang))}"></textarea></label>
+        <label class="full">{t('s_photo', lang)}<input name="attachment" type="file" accept="image/jpeg,image/png,image/webp" required data-max-mb="5" data-too-big="{E(t('s_photo_big', lang))}"><small>{t('s_photo_hint', lang)}</small></label>
+      </fieldset>
+      <fieldset class="full" aria-labelledby="g-you"><h2 class="group-h full" id="g-you">{t('g_you', lang)}</h2>
+        <label>{t('s_name', lang)}<input name="name" required autocomplete="name"></label>
+        <label>{t('f_phone', lang)}<input name="phone" type="tel" required autocomplete="tel" inputmode="tel" pattern="[0-9+ \\-]{{8,}}"></label>
+        <label>{t('f_email', lang)}<input name="email" type="email" autocomplete="email"></label>
+        <label>{t('s_address', lang)}<input name="contact_address" required autocomplete="street-address"></label>
+      </fieldset>
+      <label class="check full consent"><input type="checkbox" name="consent" value="yes" required> {t('s_consent', lang)}</label>
+      <div class="full form-foot">
+        <button class="btn btn-primary" type="submit">{t('s_send', lang)}</button>
+      </div>
+    </form>
+  </div>
+</section>
+"""
+    simple_page(lang, "sell/", f"{t('sell_title', lang)} | JJ Works", t("sell_meta", lang), body)
+
+    def thanks_body(up, home):
+        return f"""<section class="message-page"><div class="wrap">
+  <h1>{t('st_h', lang)}</h1>
+  <p>{t('st_p', lang)}</p>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="{home}">{t('t_home', lang)}</a>
+    <a class="btn btn-wa" href="{wa_link(t('wa_text', lang))}" target="_blank" rel="noopener">{ICON_WA}{t('whatsapp_us', lang)}</a>
+  </div>
+</div></section>
+"""
+    simple_page(lang, "sell/thanks/", f"{t('st_h', lang)} | JJ Works", t("st_p", lang), thanks_body, noindex=True)
+
+
+def listing_card(l, lang, up):
+    lid = l["id"]
+    facs = ", ".join(t("fac_" + f, lang) for f in l.get("facilities", []))
+    price = taka(l["price_bdt"], lang) + (f' <small>{t("l_neg", lang)}</small>' if l.get("negotiable") else "")
+    sold = f'<span class="sold-tag">{t("l_sold", lang)}</span>' if l.get("sold") else ""
+    rows = [
+        (t("l_size", lang), f'{num(f"{l["size_sqft"]:,}", lang)} {t("l_sqft", lang)}'),
+        (t("l_rooms", lang), t("l_rooms_v", lang).format(b=num(l["bedrooms"], lang), t=num(l["bathrooms"], lang))),
+        (t("l_floor", lang), t("l_floor_v", lang).format(f=num(l["floor"], lang), t=num(l["total_floors"], lang))),
+    ]
+    if facs:
+        rows.append((t("s_fac", lang), facs))
+    dl = "".join(f"<div><dt>{a}</dt><dd>{E(b)}</dd></div>" for a, b in rows)
+    details = f'<p class="listing-details">{E(pick(l["details"], lang))}</p>' if l.get("details") else ""
+    actions = "" if l.get("sold") else f"""<div class="listing-actions">
+      <a class="btn btn-wa btn-sm" href="{wa_link(t('l_wa', lang).format(id=lid))}" target="_blank" rel="noopener">{ICON_WA}{t('l_ask', lang)}</a>
+      <a class="btn btn-ghost btn-sm" href="?listing={quote(lid)}#flat-enquiry">{t('l_form', lang)}</a>
+    </div>"""
+    return f"""<li class="listing{' is-sold' if l.get('sold') else ''}" id="{lid}">
+  <div class="listing-img">{sold}<img src="{up}images/listings/{lid}.jpg" alt="{E(pick(l['location'], lang))}" loading="lazy" decoding="async"></div>
+  <div class="listing-body">
+    <p class="listing-id">{t('l_listing', lang)} {lid}</p>
+    <p class="listing-price">{price}</p>
+    <h2 class="listing-loc">{E(pick(l['location'], lang))}</h2>
+    <dl class="listing-facts">{dl}</dl>
+    {details}
+    {actions}
+  </div>
+</li>"""
+
+
+def buy_page(lang):
+    nxt = page_url(lang, "thanks/")
+
+    def body(up, home):
+        if LISTINGS:
+            items = "\n".join(listing_card(l, lang, up) for l in LISTINGS)
+            listing_html = f'<ul class="listings">{items}</ul>'
+        else:
+            listing_html = f'<div class="empty-state"><h2>{t("buy_empty_h", lang)}</h2><p>{t("buy_empty_p", lang)}</p></div>'
+        return f"""<section class="form-page buy-page">
+  <div class="wrap">
+    <div class="buy-head">
+      <div>
+        <h1>{t('buy_title', lang)}</h1>
+        <p>{t('buy_intro', lang)}</p>
+      </div>
+      <a class="btn btn-ghost" href="{home}sell/">{t('buy_selling', lang)}</a>
+    </div>
+    {listing_html}
+    <div class="buy-form-wrap" id="flat-enquiry">
+      <h2>{t('b_form_h', lang)}</h2>
+      <form class="enquiry" action="{FORM_ACTION}" method="POST">
+        <input type="hidden" name="_subject" value="{E(t('b_subject', lang))}">
+        <input type="hidden" name="_next" value="{nxt}">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="form" value="Flat buyer ({'English' if lang == 'en' else 'Bangla'} page)">
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label>{t('f_name', lang)}<input name="name" required autocomplete="name"></label>
+        <label>{t('f_phone', lang)}<input name="phone" type="tel" required autocomplete="tel" inputmode="tel" pattern="[0-9+ \\-]{{8,}}"></label>
+        <label>{t('b_listing', lang)}<input name="listing" id="f-listing"></label>
+        <label>{t('b_area', lang)}<input name="preferred_area"></label>
+        <label>{t('b_budget', lang)}<input name="budget_bdt" type="number" min="0" step="1000" inputmode="numeric"></label>
+        <label>{t('b_size', lang)}<input name="size_sqft" type="number" min="0" inputmode="numeric"></label>
+        <label class="full">{t('f_message', lang)}<textarea name="message" rows="3"></textarea></label>
+        <div class="full form-foot"><button class="btn btn-primary" type="submit">{t('f_send', lang)}</button><small>{t('f_note', lang)}</small></div>
+      </form>
+    </div>
+  </div>
+</section>
+"""
+    simple_page(lang, "buy/", f"{t('buy_title', lang)} | JJ Works", t("buy_meta", lang), body)
+
+
 def not_found():
     # Served from any URL, so it uses absolute paths.
     out = head("en", 0, "Page not found | JJ Works", t("nf_p", "en"), "")
     out = out.replace('href="favicon', 'href="/favicon').replace('href="apple-touch', 'href="/apple-touch').replace('href="assets/', 'href="/assets/')
     out = out.replace("<meta name=\"description\"", '<meta name="robots" content="noindex">\n<meta name="description"', 1)
-    out += header("en", 0, "").replace('href="#', 'href="/#').replace('href="bn/"', 'href="/bn/"').replace('href=""', 'href="/"')
+    out += header("en", 0, "").replace('href="#', 'href="/#').replace('href="bn/"', 'href="/bn/"').replace('href=""', 'href="/"').replace('href="buy/"', 'href="/buy/"').replace('href="sell/"', 'href="/sell/"')
     out += f"""<section class="message-page"><div class="wrap">
   <h1>{t('nf_h', 'en')}</h1>
   <p>{t('nf_p', 'en')}</p>
@@ -519,7 +771,7 @@ def not_found():
 
 
 def sitemap():
-    paths = [""] + [f"projects/{p[0]}/" for p in PROJECTS]
+    paths = ["", "buy/", "sell/"] + [f"projects/{p[0]}/" for p in PROJECTS]
     items = []
     for path in paths:
         for lang in LANGS:
@@ -542,8 +794,10 @@ if __name__ == "__main__":
     for lang in LANGS:
         home(lang)
         thanks(lang)
+        sell_page(lang)
+        buy_page(lang)
         for i in range(len(PROJECTS)):
             project_page(i, lang)
     not_found()
     sitemap()
-    print(f"Built {2 + 2 + 2 * len(PROJECTS) + 1} pages.")
+    print(f"Built {2 * (4 + len(PROJECTS)) + 2 + 1} pages.")

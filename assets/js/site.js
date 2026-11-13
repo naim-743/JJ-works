@@ -40,3 +40,25 @@
     }
   }
 })();
+
+/* Sell form: stop oversized photos before upload. Buy page: pre-fill listing number. */
+(function () {
+  document.querySelectorAll('input[type=file][data-max-mb]').forEach(function (input) {
+    var max = parseFloat(input.getAttribute('data-max-mb')) * 1024 * 1024;
+    var msg = document.createElement('p');
+    msg.className = 'form-error';
+    msg.setAttribute('role', 'alert');
+    msg.hidden = true;
+    input.insertAdjacentElement('afterend', msg);
+    input.addEventListener('change', function () {
+      var f = input.files && input.files[0];
+      var tooBig = f && f.size > max;
+      input.setCustomValidity(tooBig ? input.getAttribute('data-too-big') : '');
+      msg.textContent = tooBig ? input.getAttribute('data-too-big') : '';
+      msg.hidden = !tooBig;
+    });
+  });
+  var listing = new URLSearchParams(location.search).get('listing');
+  var field = document.getElementById('f-listing');
+  if (listing && field) field.value = listing;
+})();

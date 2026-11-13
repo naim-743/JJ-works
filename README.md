@@ -27,3 +27,16 @@ The form sends to jjworks.info@gmail.com through FormSubmit (formsubmit.co). The
 ## Look and feel
 
 Styles: `assets/css/site.css`. Script (mobile menu, project filter, form pre-fill): `assets/js/site.js`.
+
+## Flats for sale (Sell a flat / Buy a flat)
+
+- Sellers fill in the form at `/sell/`. FormSubmit emails the details and the building photo to jjworks.info@gmail.com. Nothing appears on the site automatically.
+- Buyers browse `/buy/` and contact JJ Works by WhatsApp or the enquiry form, quoting the listing number. Sellers' names and phone numbers are never published.
+
+To publish an approved flat:
+
+1. Save the seller's photo as `images/listings/F-001.jpg` (next number each time).
+2. Add an entry to `LISTINGS` in `src/listings.py` (copy the example at the top of that file).
+3. Run `python3 src/build.py`, then commit and push.
+
+To mark a flat as sold, set `"sold": True` (it stays listed with a "Sold" label), or delete its entry.
