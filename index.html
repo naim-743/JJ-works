@@ -2,845 +2,285 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JJ Works — A Design House</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JJ Works | Building design and construction in Dhaka</title>
+<meta name="description" content="JJ Works is a Dhaka design and construction consultancy: architectural and structural design, interiors, facades and full construction to BNBC and RAJUK DAP 2022–2035.">
+<link rel="canonical" href="https://jjworks.bd/">
+<link rel="alternate" hreflang="en" href="https://jjworks.bd/">
+<link rel="alternate" hreflang="bn" href="https://jjworks.bd/bn/">
+<link rel="alternate" hreflang="x-default" href="https://jjworks.bd/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="JJ Works">
+<meta property="og:title" content="JJ Works | Building design and construction in Dhaka">
+<meta property="og:description" content="JJ Works is a Dhaka design and construction consultancy: architectural and structural design, interiors, facades and full construction to BNBC and RAJUK DAP 2022–2035.">
+<meta property="og:url" content="https://jjworks.bd/">
+<meta property="og:image" content="https://jjworks.bd/images/og.jpg">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#15202B">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --charcoal:#211F1D;
-    --charcoal-soft:#2B2825;
-    --rust:#C9722A;
-    --rust-deep:#A85A1E;
-    --cream:#FAF7F2;
-    --cream-dim:#EFE9DE;
-    --ink:#211F1D;
-    --stone:#8A8377;
-    --muted:#6B655C;
-    --line:#E2D9C9;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:'Inter', sans-serif;
-    color:var(--ink);
-    background:var(--cream);
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  .serif{font-family:'Fraunces', serif;}
-  a{color:inherit; text-decoration:none;}
-  img{display:block; width:100%; height:100%; object-fit:cover;}
-  .wrap{max-width:1180px; margin:0 auto; padding:0 40px;}
-
-  header{
-    position:sticky; top:0; z-index:60;
-    background:rgba(33,31,29,0.94);
-    backdrop-filter:blur(6px);
-  }
-  .header-inner{display:flex; justify-content:space-between; align-items:center; padding:22px 0;}
-  .brand{color:var(--cream); font-family:'Fraunces', serif; font-weight:600; font-size:19px; letter-spacing:0.01em;}
-  .brand span{color:var(--rust);}
-  nav{display:flex; gap:34px;}
-  nav a{color:var(--cream-dim); font-size:14px; font-weight:500; transition:color .15s;}
-  nav a:hover{color:var(--rust);}
-
-  /* HERO */
-  .hero{
-    background:var(--charcoal);
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    min-height:640px;
-  }
-  .hero-text{
-    padding:100px 56px 80px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-  }
-  .hero-text h1{
-    color:var(--cream);
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    font-size:52px;
-    line-height:1.05;
-    letter-spacing:-0.01em;
-  }
-  .hero-text .tagline{
-    font-family:'Fraunces', serif;
-    font-style:italic;
-    color:var(--rust);
-    font-size:22px;
-    margin-top:14px;
-  }
-  .hero-services{
-    margin-top:34px;
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px 0;
-    color:var(--cream-dim);
-    font-size:13px;
-    letter-spacing:0.03em;
-  }
-  .hero-services span:not(:last-child)::after{content:"•"; margin:0 12px; color:var(--rust);}
-  .hero-img{position:relative; overflow:hidden;}
-
-  /* SECTION HEAD */
-  .eyebrow-line{
-    display:flex; align-items:center; gap:14px;
-    margin-bottom:16px;
-  }
-  .eyebrow-line .rule{width:34px; height:2px; background:var(--rust);}
-  .eyebrow-line span{font-size:13px; color:var(--stone); letter-spacing:0.02em;}
-
-  /* STORY */
-  .story{padding:110px 0;}
-  .story-grid{display:grid; grid-template-columns:0.95fr 1.05fr; gap:70px; align-items:center;}
-  .story h2{font-family:'Fraunces', serif; font-weight:600; font-size:36px; margin-bottom:22px;}
-  .story p{color:#4A453F; font-size:16px; margin-bottom:18px; max-width:480px;}
-  .story-imgs{display:grid; gap:16px;}
-  .story-imgs .tall{aspect-ratio:16/11; border-radius:2px; overflow:hidden;}
-
-  /* SERVICES */
-  .services{background:var(--charcoal-soft); padding:110px 0;}
-  .services h2{font-family:'Fraunces', serif; color:var(--cream); font-weight:600; font-size:36px; margin-bottom:50px;}
-  .service-grid{
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    border-top:1px solid rgba(250,247,242,0.14);
-    border-left:1px solid rgba(250,247,242,0.14);
-  }
-  .service-cell{
-    padding:32px 26px;
-    border-right:1px solid rgba(250,247,242,0.14);
-    border-bottom:1px solid rgba(250,247,242,0.14);
-    color:var(--cream-dim);
-    font-size:15px;
-    font-weight:500;
-    min-height:110px;
-    display:flex; align-items:flex-end;
-  }
-
-  /* WORK: Completed projects banner */
-  .work{padding:110px 0;}
-  .work h2{font-family:'Fraunces', serif; font-weight:600; font-size:36px; line-height:1.15;}
-  .fp{border:1px solid var(--line); background:var(--cream);}
-  .fp-head{display:grid; grid-template-columns:1fr minmax(280px, 360px); border-bottom:1px solid var(--line);}
-  .fp-title{padding:46px 40px 42px;}
-  .fp-aside{
-    padding:46px 40px 42px 34px;
-    border-left:1px solid var(--line);
-    display:flex; flex-direction:column; justify-content:space-between; gap:26px;
-  }
-  .fp-aside p{color:var(--muted); font-size:14.5px; line-height:1.65; max-width:34ch;}
-  .fp-controls{display:flex; gap:8px;}
-  .fp-controls[hidden]{display:none;}
-  .fp-ctrl{
-    width:42px; height:42px;
-    display:grid; place-items:center;
-    background:transparent; color:var(--ink);
-    border:1px solid #CFC4B1; border-radius:0;
-    cursor:pointer;
-    transition:background .15s, color .15s, border-color .15s;
-  }
-  .fp-ctrl:hover{background:var(--charcoal); border-color:var(--charcoal); color:var(--cream);}
-  .fp-ctrl svg{width:16px; height:16px; display:block;}
-  .fp-ctrl.fp-toggle{margin-left:8px;}
-  .fp-toggle .i-play{display:none;}
-  .fp-toggle.is-paused .i-play{display:block;}
-  .fp-toggle.is-paused .i-pause{display:none;}
-
-  .fp-viewport{position:relative; overflow-x:auto;}
-  .fp.is-ready .fp-viewport{overflow:hidden; cursor:grab; touch-action:pan-y;}
-  .fp.is-ready .fp-viewport.is-dragging{cursor:grabbing;}
-  .fp-track{display:flex; list-style:none; user-select:none; -webkit-user-select:none;}
-  .fp.is-ready .fp-track{will-change:transform;}
-  .fp-card{
-    --card-w:300px;
-    flex:0 0 var(--card-w); width:var(--card-w);
-    display:flex; flex-direction:column;
-    background:#fff;
-    border-right:1px solid var(--line);
-  }
-  .fp-photo{aspect-ratio:1/1; overflow:hidden; background:var(--cream-dim);}
-  .fp-photo img{-webkit-user-drag:none;}
-  .fp-body{flex:1; display:flex; flex-direction:column; padding:24px 24px 26px;}
-  .fp-body h3{font-family:'Fraunces', serif; font-weight:600; font-size:21px; line-height:1.25; color:var(--ink); margin-bottom:16px;}
-  .fp-specs{margin-bottom:24px;}
-  .fp-specs div{
-    display:grid; grid-template-columns:76px 1fr; gap:12px;
-    padding:10px 0;
-    border-top:1px solid var(--line);
-    font-size:13.5px; line-height:1.45;
-  }
-  .fp-specs div:last-child{border-bottom:1px solid var(--line);}
-  .fp-specs dt{font-weight:600; color:var(--ink);}
-  .fp-specs dd{color:var(--muted);}
-  .fp-cta{
-    margin-top:auto;
-    display:flex; align-items:center; justify-content:space-between; gap:12px;
-    padding:13px 16px;
-    background:var(--charcoal); color:var(--cream);
-    font-size:13.5px; font-weight:600;
-    transition:background .15s;
-  }
-  .fp-cta svg{width:18px; height:18px; flex:none; color:var(--rust); transition:color .15s;}
-  .fp-cta:hover{background:var(--rust-deep);}
-  .fp-cta:hover svg{color:var(--cream);}
-  .fp-ctrl:focus-visible, .fp-cta:focus-visible{outline:2px solid var(--rust); outline-offset:2px;}
-
-  /* WHY */
-  .why{background:var(--charcoal); padding:110px 0;}
-  .why h2{font-family:'Fraunces', serif; color:var(--cream); font-weight:600; font-size:36px; margin-bottom:50px; max-width:520px;}
-  .why-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:0; border-top:1px solid rgba(250,247,242,0.14);}
-  .why-item{padding:36px 22px 0; border-right:1px solid rgba(250,247,242,0.14);}
-  .why-item:last-child{border-right:none;}
-  .why-num{font-family:'Fraunces', serif; color:var(--rust); font-size:26px; margin-bottom:16px;}
-  .why-item h3{color:var(--cream); font-size:16px; font-weight:600; margin-bottom:10px;}
-  .why-item p{color:var(--cream-dim); font-size:13.5px; line-height:1.6;}
-
-  /* PROCESS */
-  .process{padding:110px 0;}
-  .process h2{font-family:'Fraunces', serif; font-weight:600; font-size:36px; margin-bottom:50px;}
-  .process-row{
-    display:grid;
-    grid-template-columns:70px 1fr;
-    gap:26px;
-    padding:26px 0;
-    border-top:1px solid var(--cream-dim);
-    align-items:baseline;
-  }
-  .process-row:last-child{border-bottom:1px solid var(--cream-dim);}
-  .process-num{font-family:'Fraunces', serif; color:var(--rust); font-size:22px;}
-  .process-row h3{font-size:18px; font-weight:600; margin-bottom:6px;}
-  .process-row p{color:var(--stone); font-size:14.5px; max-width:520px;}
-
-  /* CONTACT */
-  .contact{background:var(--charcoal); padding:110px 0 70px; text-align:center;}
-  .contact h2{font-family:'Fraunces', serif; color:var(--cream); font-weight:600; font-size:38px; max-width:600px; margin:0 auto 16px;}
-  .contact > .wrap > p{color:var(--cream-dim); max-width:520px; margin:0 auto; font-size:15.5px;}
-  .contact-cards{
-    margin-top:60px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:1px;
-    background:rgba(250,247,242,0.14);
-  }
-  .contact-card{background:var(--charcoal); padding:36px 24px; text-align:left;}
-  .contact-card .k{color:var(--rust); font-size:12px; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:12px; font-weight:600;}
-  .contact-card .v{color:var(--cream); font-size:15px; line-height:1.7;}
-  .contact-card a{transition:color .15s;}
-  .contact-card a:hover{color:var(--rust);}
-  .signoff{margin-top:60px; padding-top:34px; border-top:1px solid rgba(250,247,242,0.14);}
-  .signoff .name{color:var(--cream); font-family:'Fraunces', serif; font-size:19px; font-weight:600;}
-  .signoff .role{color:var(--rust); font-size:13.5px; margin-top:4px;}
-
-  footer{padding:26px 0; text-align:center; font-size:13px; color:var(--stone); background:var(--charcoal);}
-
-  @media (max-width:900px){
-    .wrap{padding:0 22px;}
-    .hero{grid-template-columns:1fr;}
-    .hero-img{aspect-ratio:16/11;}
-    .hero-text{padding:60px 24px 50px;}
-    .hero-text h1{font-size:36px;}
-    .story-grid{grid-template-columns:1fr; gap:36px;}
-    .service-grid{grid-template-columns:repeat(2,1fr);}
-    .fp-head{grid-template-columns:1fr;}
-    .fp-title{padding:32px 22px 26px;}
-    .fp-aside{padding:22px 22px 26px; border-left:none; border-top:1px solid var(--line); gap:20px;}
-    .fp-card{--card-w:min(78vw, 300px);}
-    .fp-body{padding:22px 20px 24px;}
-    .why-grid{grid-template-columns:repeat(2,1fr);}
-    .why-item{border-right:none; border-bottom:1px solid rgba(250,247,242,0.14); padding-bottom:24px;}
-    .contact-cards{grid-template-columns:1fr;}
-    nav{display:none;}
-  }
-</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wdth,wght@75..100,500..700&family=Hind+Siliguri:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "GeneralContractor", "name": "JJ Works", "url": "https://jjworks.bd/", "image": "https://jjworks.bd/images/og.jpg", "email": "jjworks.info@gmail.com", "telephone": "+8801991111333", "founder": {"@type": "Person", "name": "Engr. Md. Abu Naim Mia", "jobTitle": "Managing Partner"}, "areaServed": ["Dhaka", "Tangail"], "address": [{"@type": "PostalAddress", "streetAddress": "House 105, Park Road, Mohakhali DOHS", "addressLocality": "Dhaka", "addressCountry": "BD"}, {"@type": "PostalAddress", "streetAddress": "308 Mujahidnagar, Rayerbag Road", "addressLocality": "Dhaka", "addressCountry": "BD"}], "knowsAbout": ["Architectural design", "Structural design", "Civil works", "Interior design and execution", "Exterior and facade design", "Construction", "Consultancy", "Landscape and space planning"]}</script>
 </head>
-<body>
-
-<header>
-  <div class="wrap header-inner">
-    <div class="brand">JJ <span>WORKS</span></div>
-    <nav>
-      <a href="#story">Story</a>
+<body class="lang-en">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="" aria-label="JJ Works home"><span class="brand-mark" aria-hidden="true"></span>JJ Works</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <a href="#projects">Projects</a>
       <a href="#services">Services</a>
-      <a href="#work">Work</a>
       <a href="#process">Process</a>
       <a href="#contact">Contact</a>
+      <a class="lang-switch" href="bn/" hreflang="bn" lang="bn" title="Read this page in Bangla">বাংলা</a>
+      <a class="btn btn-wa btn-sm" href="https://wa.me/8801991111333?text=Hello%20JJ%20Works%2C%20I%20found%20you%20on%20jjworks.bd%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" class="ico"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>WhatsApp</a>
     </nav>
   </div>
 </header>
-
+<main id="main">
 <section class="hero">
   <div class="hero-text">
-    <h1>A design house<br>for buildings that<br>work as hard as<br>they look.</h1>
-    <div class="tagline">Interior · Exterior · Construction · Consultancy</div>
-    <div class="hero-services">
-      <span>Architectural Design</span>
-      <span>Structural Engineering</span>
-      <span>Civil Works</span>
-      <span>Full Execution</span>
+    <h1>One team designs it, engineers it and builds it.</h1>
+    <p>JJ Works is a design and construction consultancy in Dhaka. We handle architectural, structural, interior and exterior work for homes and commercial buildings, from the first drawing to handover.</p>
+    <div class="hero-actions">
+      <a class="btn btn-wa" href="https://wa.me/8801991111333?text=Hello%20JJ%20Works%2C%20I%20found%20you%20on%20jjworks.bd%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" class="ico"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>Message us on WhatsApp</a>
+      <a class="btn btn-ghost" href="#projects">See our projects</a>
     </div>
   </div>
-  <div class="hero-img"><img src="images/building-exterior.jpg" alt="JJ Works residential building"></div>
+  <div class="hero-visual">
+    <picture><source type="image/webp" srcset="images/building-exterior.webp"><img src="images/building-exterior.jpg" alt="A residential building by JJ Works" width="920" height="1080" fetchpriority="high"></picture>
+    <table class="titleblock">
+      <caption>JJ Works, design house</caption>
+      <tbody>
+        <tr><th scope="row">Completed projects</th><td>19</td></tr>
+        <tr><th scope="row">Working in</th><td>Dhaka and Tangail</td></tr>
+        <tr><th scope="row">Codes followed</th><td>BNBC, RAJUK DAP 2022–2035</td></tr>
+        <tr><th scope="row">Call the engineer</th><td><a href="tel:+8801991111333">01991-111333</a></td></tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
-<section class="story" id="story">
+<section class="story" aria-labelledby="story-h">
   <div class="wrap story-grid">
-    <div>
-      <div class="eyebrow-line"><div class="rule"></div><span>OUR STORY</span></div>
-      <h2>Engineering rigor, design sensibility.</h2>
-      <p>JJ Works is a Dhaka-based design and construction consultancy offering integrated Interior, Exterior, Construction, and Consultancy services under one roof — taking projects from concept to completion.</p>
-      <p>Our work is led by a qualified civil and structural engineering team with expertise in RCC structural design, BOQ preparation, and code compliance under BNBC and RAJUK DAP 2022–2035 standards — so every design we deliver is structurally sound as well as visually compelling.</p>
+    <h2 id="story-h">Engineering first, so the design holds up.</h2>
+    <div class="story-body">
+      <p>JJ Works brings interior, exterior, construction and consultancy services under one roof. Clients come to us with a plot or an idea and leave with a finished building.</p>
+      <p>The work is led by qualified civil and structural engineers with experience in RCC design, BOQ preparation and code compliance under BNBC and RAJUK DAP 2022–2035. Every building we design is meant to be built properly, not just to look good on paper.</p>
     </div>
-    <div class="story-imgs">
-      <div class="tall"><img src="images/building-entrance.jpg" alt="Project entrance, JJ Works"></div>
-    </div>
+    <figure class="story-img"><picture><source type="image/webp" srcset="images/building-entrance.webp"><img src="images/building-entrance.jpg" alt="Entrance of a JJ Works building" width="1400" height="788" loading="lazy" decoding="async"></picture></figure>
   </div>
 </section>
 
-<section class="services" id="services">
+<section class="projects" id="projects" aria-labelledby="projects-h">
   <div class="wrap">
-    <div class="eyebrow-line"><div class="rule"></div><span style="color:var(--cream-dim)">WHAT WE DO</span></div>
-    <h2>Services</h2>
-    <div class="service-grid">
-      <div class="service-cell">Architectural Design</div>
-      <div class="service-cell">Structural Design</div>
-      <div class="service-cell">Civil Works</div>
-      <div class="service-cell">Interior Design &amp; Execution</div>
-      <div class="service-cell">Exterior &amp; Facade Design</div>
-      <div class="service-cell">Construction</div>
-      <div class="service-cell">Consultancy</div>
-      <div class="service-cell">Landscape &amp; Space Planning</div>
+    <div class="sec-head">
+      <h2 id="projects-h">Completed projects</h2>
+      <p>Homes, apartment buildings and commercial blocks across Dhaka and Tangail. Open a project to see more.</p>
     </div>
+    <div class="filters" role="group" aria-label="Show"><button type="button" class="chip" aria-pressed="true" data-filter="all">All <span>19</span></button><button type="button" class="chip" aria-pressed="false" data-filter="residential">Residential <span>16</span></button><button type="button" class="chip" aria-pressed="false" data-filter="commercial">Commercial <span>1</span></button><button type="button" class="chip" aria-pressed="false" data-filter="mixed">Commercial + residential <span>2</span></button></div>
+    <ul class="cards" id="project-list">
+<li class="card" data-type="commercial">
+  <a href="projects/s-m-plaza/">
+    <div class="card-img"><picture><source type="image/webp" srcset="images/projects/s-m-plaza.webp"><img src="images/projects/s-m-plaza.jpg" alt="Exterior of S M Plaza, a commercial building by JJ Works in Victoria Road, Tangail" width="640" height="780" loading="lazy" decoding="async"></picture></div>
+    <h3 class="card-name">S M Plaza</h3>
+    <span class="card-meta">Commercial</span><span class="card-loc">Victoria Road, Tangail</span>
+  </a>
+</li>
+<li class="card" data-type="residential">
+  <a href="projects/lake-garden/">
+    <div class="card-img"><picture><source type="image/webp" srcset="images/projects/lake-garden.webp"><img src="images/projects/lake-garden.jpg" alt="Exterior of Lake Garden, a residential building by JJ Works in BA-81, 82, South Badda" width="640" height="780" loading="lazy" decoding="async"></picture></div>
+    <h3 class="card-name">Lake Garden</h3>
+    <span class="card-meta">Residential</span><span class="card-loc">BA-81, 82, South Badda</span>
+  </a>
+</li>
+<li class="card" data-type="residential">
+  <a href="projects/paradise-nirjhor/">
+    <div class="card-img"><picture><source type="image/webp" srcset="images/projects/paradise-nirjhor.webp"><img src="images/projects/paradise-nirjhor.jpg" alt="Exterior of Paradise Nirjhor, a residential building by JJ Works" width="640" height="780" loading="lazy" decoding="async" style="object-position:50% 15%"></picture></div>
+    <h3 class="card-name">Paradise Nirjhor</h3>
+    <span class="card-meta">Residential</span>
+  </a>
+</li>
+<li class="card" data-type="residential">
+  <a href="projects/lake-view-nibash/">
+    <div class="card-img"><picture><source type="image/webp" srcset="images/projects/lake-view-nibash.webp"><img src="images/projects/lake-view-nibash.jpg" alt="Exterior of Lake View Nibash, a residential building by JJ Works in BA-73/1, South Badda" width="640" height="780" loading="lazy" decoding="async"></picture></div>
+    <h3 class="card-name">Lake View Nibash</h3>
+    <span class="card-meta">Residential</span><span class="card-loc">BA-73/1, South Badda</span>
+  </a>
+</li>
+<li class="card" data-type="residential">
+  <a href="projects/residential-tower-2025/">
+    <div class="card-img"><picture><source type="image/webp" srcset="images/projects/residential-tower-2025.webp"><img src="images/projects/residential-tower-2025.jpg" alt="Exterior of Residential tower, a residential building by JJ Works" width="640" height="780" loading="lazy" decoding="async"></picture></div>
+    <h3 class="card-name">Residential tower</h3>
+    <span class="card-meta">Residential</span>
+  </a>
+</li>
+<li class="card" data-type="residential">
+  <a href="projects/rowshonara-nibash/">
+    <div class="card-img"><picture><source type="image/webp" srcset="images/projects/rowshonara-nibash.webp"><img src="images/projects/rowshonara-nibash.jpg" alt="Exterior of Rowshonara Nibash, a residential building by JJ Works" width="640" height="780" loading="lazy" decoding="async" style="object-position:50% 12%"></picture></div>
+    <h3 class="card-name">Rowshonara Nibash</h3>
+    <span class="card-meta">Residential</span>
+  </a>
+</li>
+<li class="card" data-type="residential">
+  <a href="projects/sopno-nibash/">
+    <div class="card-img"><picture><source type="image/webp" srcset="images/projects/sopno-nibash.webp"><img src="images/projects/sopno-nibash.jpg" alt="Exterior of Sopno Nibash, a residential building by JJ Works in BA-49, 50, 51, South Badda" width="640" height="780" loading="lazy" decoding="async" style="object-position:50% 12%"></picture></div>
+    <h3 class="card-name">Sopno Nibash</h3>
+    <span class="card-meta">Residential</span><span class="card-loc">BA-49, 50, 51, South Badda</span>
+  </a>
+</li>
+<li class="card" data-type="residential">
+  <a href="projects/green-halmet/">
+    <div class="card-img"><picture><source type="image/webp" srcset="images/projects/green-halmet.webp"><img src="images/projects/green-halmet.jpg" alt="Exterior of Green Halmet, a residential building by JJ Works in Savar, Dhaka" width="640" height="780" loading="lazy" decoding="async" style="object-position:50% 30%"></picture></div>
+    <h3 class="card-name">Green Halmet</h3>
+    <span class="card-meta">Residential</span><span class="card-loc">Savar, Dhaka</span>
+  </a>
+</li>
+<li class="card" data-type="mixed">
+  <a href="projects/neoge-lodge/">
+    <div class="card-img"><picture><source type="image/webp" srcset="images/projects/neoge-lodge.webp"><img src="images/projects/neoge-lodge.jpg" alt="Exterior of Neoge Lodge, a commercial + residential building by JJ Works in Tangail" width="640" height="780" loading="lazy" decoding="async"></picture></div>
+    <h3 class="card-name">Neoge Lodge</h3>
+    <span class="card-meta">Commercial + residential</span><span class="card-loc">Tangail</span>
+  </a>
+</li>
+<li class="card" data-type="mixed">
+  <a href="projects/karims-nibash/">
+    <div class="card-img"><picture><source type="image/webp" srcset="images/projects/karims-nibash.webp"><img src="images/projects/karims-nibash.jpg" alt="Exterior of Karim&#x27;s Nibash, a commercial + residential building by JJ Works" width="640" height="780" loading="lazy" decoding="async" style="object-position:50% 15%"></picture></div>
+    <h3 class="card-name">Karim&#x27;s Nibash</h3>
+    <span class="card-meta">Commercial + residential</span>
+  </a>
+</li>
+<li class="card" data-type="residential">
+  <a href="projects/ba-75/">
+    <div class="card-img"><picture><source type="image/webp" srcset="images/projects/ba-75.webp"><img src="images/projects/ba-75.jpg" alt="Exterior of BA-75, a residential building by JJ Works" width="640" height="780" loading="lazy" decoding="async"></picture></div>
+    <h3 class="card-name">BA-75</h3>
+    <span class="card-meta">Residential</span>
+  </a>
+</li>
+<li class="card" data-type="residential">
+  <a href="projects/ba-76/">
+    <div class="card-img"><picture><source type="image/webp" srcset="images/projects/ba-76.webp"><img src="images/projects/ba-76.jpg" alt="Exterior of BA-76, a residential building by JJ Works" width="640" height="780" loading="lazy" decoding="async"></picture></div>
+    <h3 class="card-name">BA-76</h3>
+    <span class="card-meta">Residential</span>
+  </a>
+</li>
+<li class="card" data-type="residential">
+  <a href="projects/mohabbat/">
+    <div class="card-img"><picture><source type="image/webp" srcset="images/projects/mohabbat.webp"><img src="images/projects/mohabbat.jpg" alt="Exterior of Mohabbat, a residential building by JJ Works" width="640" height="780" loading="lazy" decoding="async"></picture></div>
+    <h3 class="card-name">Mohabbat</h3>
+    <span class="card-meta">Residential</span>
+  </a>
+</li>
+<li class="card" data-type="residential">
+  <a href="projects/sayeda-nibash/">
+    <div class="card-img"><picture><source type="image/webp" srcset="images/projects/sayeda-nibash.webp"><img src="images/projects/sayeda-nibash.jpg" alt="Exterior of Sayeda Nibash, a residential building by JJ Works in Tangail" width="640" height="780" loading="lazy" decoding="async"></picture></div>
+    <h3 class="card-name">Sayeda Nibash</h3>
+    <span class="card-meta">Residential</span><span class="card-loc">Tangail</span>
+  </a>
+</li>
+<li class="card" data-type="residential">
+  <a href="projects/apon-nibash/">
+    <div class="card-img"><picture><source type="image/webp" srcset="images/projects/apon-nibash.webp"><img src="images/projects/apon-nibash.jpg" alt="Exterior of Apon Nibash, a residential building by JJ Works in BA-26, 27, South Badda" width="640" height="780" loading="lazy" decoding="async"></picture></div>
+    <h3 class="card-name">Apon Nibash</h3>
+    <span class="card-meta">Residential</span><span class="card-loc">BA-26, 27, South Badda</span>
+  </a>
+</li>
+<li class="card" data-type="residential">
+  <a href="projects/sofi-nibash/">
+    <div class="card-img"><picture><source type="image/webp" srcset="images/projects/sofi-nibash.webp"><img src="images/projects/sofi-nibash.jpg" alt="Exterior of Sofi Nibash, a residential building by JJ Works in Vatara, Dhaka" width="640" height="780" loading="lazy" decoding="async" style="object-position:50% 12%"></picture></div>
+    <h3 class="card-name">Sofi Nibash</h3>
+    <span class="card-meta">Residential</span><span class="card-loc">Vatara, Dhaka</span>
+  </a>
+</li>
+<li class="card" data-type="residential">
+  <a href="projects/mir-nibash/">
+    <div class="card-img"><picture><source type="image/webp" srcset="images/projects/mir-nibash.webp"><img src="images/projects/mir-nibash.jpg" alt="Exterior of Mir Nibash, a residential building by JJ Works in South Badda, Dhaka" width="640" height="780" loading="lazy" decoding="async" style="object-position:50% 12%"></picture></div>
+    <h3 class="card-name">Mir Nibash</h3>
+    <span class="card-meta">Residential</span><span class="card-loc">South Badda, Dhaka</span>
+  </a>
+</li>
+<li class="card" data-type="residential">
+  <a href="projects/noorjahan-nibash/">
+    <div class="card-img"><picture><source type="image/webp" srcset="images/projects/noorjahan-nibash.webp"><img src="images/projects/noorjahan-nibash.jpg" alt="Exterior of Noorjahan Nibash, a residential building by JJ Works in TA-134/1, Middle Badda" width="640" height="780" loading="lazy" decoding="async"></picture></div>
+    <h3 class="card-name">Noorjahan Nibash</h3>
+    <span class="card-meta">Residential</span><span class="card-loc">TA-134/1, Middle Badda</span>
+  </a>
+</li>
+<li class="card" data-type="residential">
+  <a href="projects/suraiya-nibash/">
+    <div class="card-img"><picture><source type="image/webp" srcset="images/projects/suraiya-nibash.webp"><img src="images/projects/suraiya-nibash.jpg" alt="Exterior of Suraiya Nibash, a residential building by JJ Works in Akur Takur Para, Tangail" width="640" height="780" loading="lazy" decoding="async" style="object-position:50% 8%"></picture></div>
+    <h3 class="card-name">Suraiya Nibash</h3>
+    <span class="card-meta">Residential</span><span class="card-loc">Akur Takur Para, Tangail</span>
+  </a>
+</li>
+    </ul>
   </div>
 </section>
 
-<section class="work" id="work">
+<section class="services" id="services" aria-labelledby="services-h">
   <div class="wrap">
-    <div class="fp" data-fp>
-      <div class="fp-head">
-        <div class="fp-title">
-          <div class="eyebrow-line"><div class="rule"></div><span>SELECTED WORK</span></div>
-          <h2 id="work-title">Completed projects</h2>
-        </div>
-        <div class="fp-aside">
-          <p>Selected JJ Works projects, with the location and type of each.</p>
-          <div class="fp-controls" hidden>
-            <button type="button" class="fp-ctrl" data-fp-prev aria-label="Previous project">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>
-            </button>
-            <button type="button" class="fp-ctrl" data-fp-next aria-label="Next project">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-            </button>
-            <button type="button" class="fp-ctrl fp-toggle" data-fp-toggle aria-label="Pause slideshow" title="Pause slideshow">
-              <svg class="i-pause" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="4" y="3" width="2.6" height="10"/><rect x="9.4" y="3" width="2.6" height="10"/></svg>
-              <svg class="i-play" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3l8 5-8 5z"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="fp-viewport" role="region" aria-roledescription="carousel" aria-labelledby="work-title">
-        <ul class="fp-track">
-          <li class="fp-card">
-            <div class="fp-photo"><img src="images/projects/s-m-plaza.jpg" alt="S M Plaza, exterior view" loading="lazy" decoding="async" draggable="false"></div>
-            <div class="fp-body">
-              <h3>S M Plaza</h3>
-              <dl class="fp-specs">
-                <div><dt>Location</dt><dd>Victoria Road, Tangail</dd></div>
-                <div><dt>Type</dt><dd>Commercial</dd></div>
-              </dl>
-              <a class="fp-cta" href="#contact" draggable="false">Discuss a similar project<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9h12M11 5l4 4-4 4"/></svg></a>
-            </div>
-          </li>
-          <li class="fp-card">
-            <div class="fp-photo"><img src="images/projects/lake-garden.jpg" alt="Lake Garden, exterior view" loading="lazy" decoding="async" draggable="false"></div>
-            <div class="fp-body">
-              <h3>Lake Garden</h3>
-              <dl class="fp-specs">
-                <div><dt>Location</dt><dd>BA-81, 82, South Badda</dd></div>
-                <div><dt>Type</dt><dd>Residential</dd></div>
-              </dl>
-              <a class="fp-cta" href="#contact" draggable="false">Discuss a similar project<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9h12M11 5l4 4-4 4"/></svg></a>
-            </div>
-          </li>
-          <li class="fp-card">
-            <div class="fp-photo"><img src="images/projects/paradise-nirjhor.jpg" alt="Paradise Nirjhor, exterior view" style="object-position:50% 15%" loading="lazy" decoding="async" draggable="false"></div>
-            <div class="fp-body">
-              <h3>Paradise Nirjhor</h3>
-              <dl class="fp-specs">
-                <div><dt>Type</dt><dd>Residential</dd></div>
-              </dl>
-              <a class="fp-cta" href="#contact" draggable="false">Discuss a similar project<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9h12M11 5l4 4-4 4"/></svg></a>
-            </div>
-          </li>
-          <li class="fp-card">
-            <div class="fp-photo"><img src="images/projects/lake-view-nibash.jpg" alt="Lake View Nibash, exterior view" loading="lazy" decoding="async" draggable="false"></div>
-            <div class="fp-body">
-              <h3>Lake View Nibash</h3>
-              <dl class="fp-specs">
-                <div><dt>Location</dt><dd>BA-73/1, South Badda</dd></div>
-                <div><dt>Type</dt><dd>Residential</dd></div>
-              </dl>
-              <a class="fp-cta" href="#contact" draggable="false">Discuss a similar project<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9h12M11 5l4 4-4 4"/></svg></a>
-            </div>
-          </li>
-          <li class="fp-card">
-            <div class="fp-photo"><img src="images/projects/residential-tower-2025.jpg" alt="Residential tower, exterior view" loading="lazy" decoding="async" draggable="false"></div>
-            <div class="fp-body">
-              <h3>Residential tower</h3>
-              <dl class="fp-specs">
-                <div><dt>Type</dt><dd>Residential</dd></div>
-              </dl>
-              <a class="fp-cta" href="#contact" draggable="false">Discuss a similar project<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9h12M11 5l4 4-4 4"/></svg></a>
-            </div>
-          </li>
-          <li class="fp-card">
-            <div class="fp-photo"><img src="images/projects/rowshonara-nibash.jpg" alt="Rowshonara Nibash, exterior view" style="object-position:50% 12%" loading="lazy" decoding="async" draggable="false"></div>
-            <div class="fp-body">
-              <h3>Rowshonara Nibash</h3>
-              <dl class="fp-specs">
-                <div><dt>Type</dt><dd>Residential</dd></div>
-              </dl>
-              <a class="fp-cta" href="#contact" draggable="false">Discuss a similar project<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9h12M11 5l4 4-4 4"/></svg></a>
-            </div>
-          </li>
-          <li class="fp-card">
-            <div class="fp-photo"><img src="images/projects/sopno-nibash.jpg" alt="Sopno Nibash, exterior view" style="object-position:50% 12%" loading="lazy" decoding="async" draggable="false"></div>
-            <div class="fp-body">
-              <h3>Sopno Nibash</h3>
-              <dl class="fp-specs">
-                <div><dt>Location</dt><dd>BA-49, 50, 51, South Badda</dd></div>
-                <div><dt>Type</dt><dd>Residential</dd></div>
-              </dl>
-              <a class="fp-cta" href="#contact" draggable="false">Discuss a similar project<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9h12M11 5l4 4-4 4"/></svg></a>
-            </div>
-          </li>
-          <li class="fp-card">
-            <div class="fp-photo"><img src="images/projects/green-halmet.jpg" alt="Green Halmet, exterior view" style="object-position:50% 30%" loading="lazy" decoding="async" draggable="false"></div>
-            <div class="fp-body">
-              <h3>Green Halmet</h3>
-              <dl class="fp-specs">
-                <div><dt>Location</dt><dd>Savar, Dhaka</dd></div>
-                <div><dt>Type</dt><dd>Residential</dd></div>
-              </dl>
-              <a class="fp-cta" href="#contact" draggable="false">Discuss a similar project<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9h12M11 5l4 4-4 4"/></svg></a>
-            </div>
-          </li>
-          <li class="fp-card">
-            <div class="fp-photo"><img src="images/projects/neoge-lodge.jpg" alt="Neoge Lodge, exterior view" loading="lazy" decoding="async" draggable="false"></div>
-            <div class="fp-body">
-              <h3>Neoge Lodge</h3>
-              <dl class="fp-specs">
-                <div><dt>Location</dt><dd>Tangail</dd></div>
-                <div><dt>Type</dt><dd>Commercial + residential</dd></div>
-              </dl>
-              <a class="fp-cta" href="#contact" draggable="false">Discuss a similar project<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9h12M11 5l4 4-4 4"/></svg></a>
-            </div>
-          </li>
-          <li class="fp-card">
-            <div class="fp-photo"><img src="images/projects/karims-nibash.jpg" alt="Karim&#x27;s Nibash, exterior view" style="object-position:50% 15%" loading="lazy" decoding="async" draggable="false"></div>
-            <div class="fp-body">
-              <h3>Karim&#x27;s Nibash</h3>
-              <dl class="fp-specs">
-                <div><dt>Type</dt><dd>Commercial + residential</dd></div>
-              </dl>
-              <a class="fp-cta" href="#contact" draggable="false">Discuss a similar project<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9h12M11 5l4 4-4 4"/></svg></a>
-            </div>
-          </li>
-          <li class="fp-card">
-            <div class="fp-photo"><img src="images/projects/ba-75.jpg" alt="BA-75, exterior view" loading="lazy" decoding="async" draggable="false"></div>
-            <div class="fp-body">
-              <h3>BA-75</h3>
-              <dl class="fp-specs">
-                <div><dt>Type</dt><dd>Residential</dd></div>
-              </dl>
-              <a class="fp-cta" href="#contact" draggable="false">Discuss a similar project<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9h12M11 5l4 4-4 4"/></svg></a>
-            </div>
-          </li>
-          <li class="fp-card">
-            <div class="fp-photo"><img src="images/projects/ba-76.jpg" alt="BA-76, exterior view" loading="lazy" decoding="async" draggable="false"></div>
-            <div class="fp-body">
-              <h3>BA-76</h3>
-              <dl class="fp-specs">
-                <div><dt>Type</dt><dd>Residential</dd></div>
-              </dl>
-              <a class="fp-cta" href="#contact" draggable="false">Discuss a similar project<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9h12M11 5l4 4-4 4"/></svg></a>
-            </div>
-          </li>
-          <li class="fp-card">
-            <div class="fp-photo"><img src="images/projects/mohabbat.jpg" alt="Mohabbat, exterior view" loading="lazy" decoding="async" draggable="false"></div>
-            <div class="fp-body">
-              <h3>Mohabbat</h3>
-              <dl class="fp-specs">
-                <div><dt>Type</dt><dd>Residential</dd></div>
-              </dl>
-              <a class="fp-cta" href="#contact" draggable="false">Discuss a similar project<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9h12M11 5l4 4-4 4"/></svg></a>
-            </div>
-          </li>
-          <li class="fp-card">
-            <div class="fp-photo"><img src="images/projects/sayeda-nibash.jpg" alt="Sayeda Nibash, exterior view" loading="lazy" decoding="async" draggable="false"></div>
-            <div class="fp-body">
-              <h3>Sayeda Nibash</h3>
-              <dl class="fp-specs">
-                <div><dt>Location</dt><dd>Tangail</dd></div>
-                <div><dt>Type</dt><dd>Residential</dd></div>
-              </dl>
-              <a class="fp-cta" href="#contact" draggable="false">Discuss a similar project<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9h12M11 5l4 4-4 4"/></svg></a>
-            </div>
-          </li>
-          <li class="fp-card">
-            <div class="fp-photo"><img src="images/projects/apon-nibash.jpg" alt="Apon Nibash, exterior view" loading="lazy" decoding="async" draggable="false"></div>
-            <div class="fp-body">
-              <h3>Apon Nibash</h3>
-              <dl class="fp-specs">
-                <div><dt>Location</dt><dd>BA-26, 27, South Badda</dd></div>
-                <div><dt>Type</dt><dd>Residential</dd></div>
-              </dl>
-              <a class="fp-cta" href="#contact" draggable="false">Discuss a similar project<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9h12M11 5l4 4-4 4"/></svg></a>
-            </div>
-          </li>
-          <li class="fp-card">
-            <div class="fp-photo"><img src="images/projects/sofi-nibash.jpg" alt="Sofi Nibash, exterior view" style="object-position:50% 12%" loading="lazy" decoding="async" draggable="false"></div>
-            <div class="fp-body">
-              <h3>Sofi Nibash</h3>
-              <dl class="fp-specs">
-                <div><dt>Location</dt><dd>Vatara, Dhaka</dd></div>
-                <div><dt>Type</dt><dd>Residential</dd></div>
-              </dl>
-              <a class="fp-cta" href="#contact" draggable="false">Discuss a similar project<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9h12M11 5l4 4-4 4"/></svg></a>
-            </div>
-          </li>
-          <li class="fp-card">
-            <div class="fp-photo"><img src="images/projects/mir-nibash.jpg" alt="Mir Nibash, exterior view" style="object-position:50% 12%" loading="lazy" decoding="async" draggable="false"></div>
-            <div class="fp-body">
-              <h3>Mir Nibash</h3>
-              <dl class="fp-specs">
-                <div><dt>Location</dt><dd>South Badda, Dhaka</dd></div>
-                <div><dt>Type</dt><dd>Residential</dd></div>
-              </dl>
-              <a class="fp-cta" href="#contact" draggable="false">Discuss a similar project<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9h12M11 5l4 4-4 4"/></svg></a>
-            </div>
-          </li>
-          <li class="fp-card">
-            <div class="fp-photo"><img src="images/projects/noorjahan-nibash.jpg" alt="Noorjahan Nibash, exterior view" loading="lazy" decoding="async" draggable="false"></div>
-            <div class="fp-body">
-              <h3>Noorjahan Nibash</h3>
-              <dl class="fp-specs">
-                <div><dt>Location</dt><dd>TA-134/1, Middle Badda</dd></div>
-                <div><dt>Type</dt><dd>Residential</dd></div>
-              </dl>
-              <a class="fp-cta" href="#contact" draggable="false">Discuss a similar project<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9h12M11 5l4 4-4 4"/></svg></a>
-            </div>
-          </li>
-          <li class="fp-card">
-            <div class="fp-photo"><img src="images/projects/suraiya-nibash.jpg" alt="Suraiya Nibash, exterior view" style="object-position:50% 8%" loading="lazy" decoding="async" draggable="false"></div>
-            <div class="fp-body">
-              <h3>Suraiya Nibash</h3>
-              <dl class="fp-specs">
-                <div><dt>Location</dt><dd>Akur Takur Para, Tangail</dd></div>
-                <div><dt>Type</dt><dd>Residential</dd></div>
-              </dl>
-              <a class="fp-cta" href="#contact" draggable="false">Discuss a similar project<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9h12M11 5l4 4-4 4"/></svg></a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <h2 id="services-h">What we do</h2>
+    <ul class="service-list"><li><h3>Architectural design</h3><p>Plans, elevations and sections for homes, apartment buildings and commercial blocks, drawn to suit the plot and the RAJUK approval process.</p></li><li><h3>Structural design</h3><p>RCC design for foundations, columns, beams and slabs, checked against BNBC requirements.</p></li><li><h3>Civil works</h3><p>Site preparation, piling, foundations and the structural frame, supervised by our engineers.</p></li><li><h3>Interior design and execution</h3><p>Layouts, 3D views, materials and fit-out for flats, offices and shops, built by our own team.</p></li><li><h3>Exterior and facade design</h3><p>Facade concepts, colour and material choices that look good and hold up to Dhaka weather.</p></li><li><h3>Construction</h3><p>Full building construction with a BOQ, a schedule and regular progress reports.</p></li><li><h3>Consultancy</h3><p>Second opinions, structural checks, BOQ preparation and code-compliance advice.</p></li><li><h3>Landscape and space planning</h3><p>Rooftops, courtyards, parking and setbacks planned so every square foot is used well.</p></li></ul>
   </div>
 </section>
 
-<section class="why">
+<section class="why" aria-labelledby="why-h">
+  <div class="wrap why-grid">
+    <h2 id="why-h">Why clients choose us</h2>
+    <ul class="reason-list"><li><h3>Engineers on the team</h3><p>Our structural engineers work alongside the designers, so what is drawn can be built.</p></li><li><h3>One point of contact</h3><p>Design, approvals support and construction are handled by one team.</p></li><li><h3>Built to code</h3><p>Every project follows BNBC and RAJUK DAP 2022–2035.</p></li><li><h3>Clear proposals</h3><p>Defined scope, payment milestones and a stated revision policy before work starts.</p></li><li><h3>Direct access</h3><p>You can call the engineer working on your building at any stage.</p></li></ul>
+  </div>
+</section>
+
+<section class="process" id="process" aria-labelledby="process-h">
   <div class="wrap">
-    <div class="eyebrow-line"><div class="rule"></div><span style="color:var(--cream-dim)">WHY CHOOSE US</span></div>
-    <h2>One team, from first sketch to handover.</h2>
-    <div class="why-grid">
-      <div class="why-item">
-        <div class="why-num">01</div>
-        <h3>In-House Engineering</h3>
-        <p>Structural engineering expertise ensures design and execution stay aligned.</p>
-      </div>
-      <div class="why-item">
-        <div class="why-num">02</div>
-        <h3>Single-Window Service</h3>
-        <p>From consultancy and design through to construction — one team, one point of contact.</p>
-      </div>
-      <div class="why-item">
-        <div class="why-num">03</div>
-        <h3>Code Compliance</h3>
-        <p>Strict adherence to BNBC and RAJUK DAP 2022–2035 building codes on every project.</p>
-      </div>
-      <div class="why-item">
-        <div class="why-num">04</div>
-        <h3>Transparent Proposals</h3>
-        <p>Clear scope, defined payment milestones, and a stated revision policy — no surprises.</p>
-      </div>
-      <div class="why-item">
-        <div class="why-num">05</div>
-        <h3>Responsive Management</h3>
-        <p>Direct access to the design and engineering team throughout your project.</p>
-      </div>
-    </div>
+    <h2 id="process-h">How a project runs</h2>
+    <ol class="steps"><li><span class="step-n">1</span><h3>Consultation and site visit</h3><p>We meet you, visit the plot and talk through your needs and budget.</p></li><li><span class="step-n">2</span><h3>Concept drawings</h3><p>First layout options so you can choose a direction.</p></li><li><span class="step-n">3</span><h3>Design development</h3><p>Detailed drawings, 3D views and material choices.</p></li><li><span class="step-n">4</span><h3>Structure and compliance</h3><p>RCC design, BOQ and code checks.</p></li><li><span class="step-n">5</span><h3>Construction and supervision</h3><p>Building work, quality control and progress reports.</p></li><li><span class="step-n">6</span><h3>Handover</h3><p>A final walkthrough together, then the keys are yours.</p></li></ol>
   </div>
 </section>
-
-<section class="process" id="process">
-  <div class="wrap">
-    <div class="eyebrow-line"><div class="rule"></div><span>HOW WE WORK</span></div>
-    <h2>Our process</h2>
-
-    <div class="process-row">
-      <div class="process-num">01</div>
-      <div><h3>Consultation &amp; Site Assessment</h3><p>Understanding client needs, site conditions, and budget.</p></div>
+<section class="contact" id="contact" aria-labelledby="contact-h">
+  <div class="wrap contact-grid">
+    <div class="contact-intro">
+      <h2 id="contact-h">Tell us about your project</h2>
+      <p>Send the form and we will call you back, usually within one working day. For a faster answer, message us on WhatsApp.</p>
+      <a class="btn btn-wa" href="https://wa.me/8801991111333?text=Hello%20JJ%20Works%2C%20I%20found%20you%20on%20jjworks.bd%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" class="ico"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>Message us on WhatsApp</a>
+      <dl class="contact-list">
+        <dt>Phone</dt><dd><ul><li><span class="who">Engr. Md. Abu Naim Mia</span> <a href="tel:+8801991111333">01991-111333</a> <a href="tel:+8801540704123">01540-704123</a></li></ul></dd>
+        <dt>Offices</dt><dd><ul><li>House 105, Park Road, Mohakhali DOHS, Dhaka <a class="map" href="https://www.google.com/maps/search/?api=1&query=House%20105%2C%20Park%20Road%2C%20Mohakhali%20DOHS%2C%20Dhaka" target="_blank" rel="noopener">Open in Google Maps</a></li><li>308 Mujahidnagar, Rayerbag Road, Dhaka <a class="map" href="https://www.google.com/maps/search/?api=1&query=308%20Mujahidnagar%2C%20Rayerbag%20Road%2C%20Dhaka" target="_blank" rel="noopener">Open in Google Maps</a></li></ul></dd>
+        <dt>Email</dt><dd><a href="mailto:jjworks.info@gmail.com">jjworks.info@gmail.com</a></dd>
+      </dl>
     </div>
-    <div class="process-row">
-      <div class="process-num">02</div>
-      <div><h3>Concept &amp; Preliminary Drawing</h3><p>Initial design direction and layout options.</p></div>
-    </div>
-    <div class="process-row">
-      <div class="process-num">03</div>
-      <div><h3>Design Development</h3><p>Detailed drawings, 3D visualization, and material selection.</p></div>
-    </div>
-    <div class="process-row">
-      <div class="process-num">04</div>
-      <div><h3>Structural &amp; Compliance Review</h3><p>RCC design, BOQ, and code-compliance checks.</p></div>
-    </div>
-    <div class="process-row">
-      <div class="process-num">05</div>
-      <div><h3>Execution &amp; Site Supervision</h3><p>Construction, quality control, and progress reporting.</p></div>
-    </div>
-    <div class="process-row">
-      <div class="process-num">06</div>
-      <div><h3>Handover</h3><p>Final walkthrough and project delivery.</p></div>
-    </div>
+    <form class="enquiry" action="https://formsubmit.co/jjworks.info@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New enquiry from jjworks.bd">
+      <input type="hidden" name="_next" value="https://jjworks.bd/thanks/">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="language" value="English">
+      <input type="hidden" name="project_seen" id="f-project" value="">
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label>Your name<input name="name" required autocomplete="name"></label>
+      <label>Phone number<input name="phone" type="tel" required autocomplete="tel" inputmode="tel" pattern="[0-9+ \-]{8,}"></label>
+      <label>Email (optional)<input name="email" type="email" autocomplete="email"></label>
+      <label>Plot or site location<input name="location"></label>
+      <label class="full">What do you need?<select name="need"><option>New building: design and construction</option><option>Design and drawings only</option><option>Interior design</option><option>Exterior or facade</option><option>Structural consultancy</option><option>Something else</option></select></label>
+      <label class="full">Tell us a little about it<textarea name="message" id="f-message" rows="4" placeholder="Plot size, number of floors, timeline…"></textarea></label>
+      <div class="full form-foot">
+        <button class="btn btn-primary" type="submit">Send enquiry</button>
+        <small>Your details go only to JJ Works.</small>
+      </div>
+    </form>
   </div>
 </section>
-
-<section class="contact" id="contact">
-  <div class="wrap">
-    <div class="eyebrow-line" style="justify-content:center;"><div class="rule"></div><span style="color:var(--cream-dim)">GET IN TOUCH</span></div>
-    <h2>Let's build together.</h2>
-    <p>Whether you're planning a new build, a renovation, or need expert structural consultancy — JJ Works is your single point of contact from concept to completion.</p>
-
-    <div class="contact-cards">
-      <div class="contact-card">
-        <div class="k">Address</div>
-        <div class="v">House # 105, Park Road, Mohakhali DOHS, Dhaka<br><br>Office 2: 308, Mujahidnagar, Rayerbag Road, Dhaka</div>
-      </div>
-      <div class="contact-card">
-        <div class="k">Phone</div>
-        <div class="v">
-          Engr. Abu Naim<br><a href="tel:+8801991111333">01991-111333</a> · <a href="tel:+8801540704123">01540-704123</a><br><br>
-          Badrul Amin Sourov<br><a href="tel:+8801988888222">019 888 88 222</a><br><br>
-          Biplob Hasan<br><a href="tel:+8801918164857">01918 164857</a>
-        </div>
-      </div>
-      <div class="contact-card">
-        <div class="k">Online</div>
-        <div class="v">
-          <a href="mailto:jjworks.info@gmail.com">jjworks.info@gmail.com</a><br>
-          <a href="https://naim-743.github.io/JJ-works/">naim-743.github.io/JJ-works</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="signoff">
-      <div class="name">Engr. Md. Abu Naim Mia</div>
-      <div class="role">Managing Partner, JJ Works</div>
-    </div>
+</main>
+<footer class="site-footer">
+  <div class="wrap foot">
+    <p>© 2026 JJ Works, a design house. Dhaka, Bangladesh.</p>
+    <p><a href="tel:+8801991111333">01991-111333</a> <span aria-hidden="true">/</span> <a href="mailto:jjworks.info@gmail.com">jjworks.info@gmail.com</a></p>
   </div>
-</section>
-
-<footer>© 2026 JJ Works — A Design House · Dhaka, Bangladesh</footer>
-
-<script>
-/* Featured projects banner: slides on its own, pauses on hover or keyboard focus,
-   and can be moved with the arrow buttons or by dragging/swiping. */
-(function () {
-  const root = document.querySelector('[data-fp]');
-  if (!root) return;
-  const viewport = root.querySelector('.fp-viewport');
-  const track = root.querySelector('.fp-track');
-  const toggle = root.querySelector('[data-fp-toggle]');
-  const originals = Array.from(track.children);
-  if (!originals.length) return;
-
-  const SPEED = 32;   // sliding speed, px per second
-  const REST = 3500;  // wait this long (ms) after someone moves it by hand
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-  let offset = 0, setWidth = 0, step = 0, sets = 1;
-  let paused = reduceMotion.matches;
-  let hovering = false, focused = false, onScreen = true;
-  let drag = null, anim = null, restUntil = 0, restTimer = 0, eatClick = false;
-  let raf = 0, last = 0;
-
-  // Copies of the cards let the row loop without a gap. Screen readers and the Tab key skip them.
-  function addCopies() {
-    originals.forEach(function (card) {
-      const copy = card.cloneNode(true);
-      copy.setAttribute('aria-hidden', 'true');
-      copy.querySelectorAll('a, button').forEach(function (el) { el.setAttribute('tabindex', '-1'); });
-      track.appendChild(copy);
-    });
-    sets++;
-  }
-
-  function wrap(x) { return setWidth ? ((x % setWidth) + setWidth) % setWidth : 0; }
-
-  function measure() {
-    const share = setWidth ? wrap(offset) / setWidth : 0;
-    if (sets < 2) addCopies();
-    setWidth = track.children[originals.length].getBoundingClientRect().left - originals[0].getBoundingClientRect().left;
-    step = originals[0].getBoundingClientRect().width;
-    while ((sets - 1) * setWidth < viewport.clientWidth + step) addCopies();
-    anim = null;
-    offset = share * setWidth;
-  }
-
-  function render() {
-    track.style.transform = 'translate3d(' + (-wrap(offset)).toFixed(2) + 'px,0,0)';
-  }
-
-  function sliding() {
-    return !paused && !hovering && !focused && !drag && onScreen && performance.now() >= restUntil;
-  }
-
-  function frame(now) {
-    raf = 0;
-    const dt = last ? Math.min(64, now - last) / 1000 : 0;
-    last = now;
-    if (anim) {
-      const t = anim.dur ? Math.min(1, (now - anim.start) / anim.dur) : 1;
-      offset = anim.from + (anim.to - anim.from) * (1 - Math.pow(1 - t, 3));
-      if (t >= 1) { anim = null; offset = wrap(offset); }
-    } else if (sliding()) {
-      offset = wrap(offset + SPEED * dt);
-    }
-    render();
-    if (anim || drag || sliding()) raf = requestAnimationFrame(frame);
-    else last = 0;
-  }
-
-  function kick() { if (!raf) raf = requestAnimationFrame(frame); }
-
-  function rest() {
-    restUntil = performance.now() + REST;
-    clearTimeout(restTimer);
-    restTimer = setTimeout(kick, REST + 30);
-  }
-
-  function slideTo(target) {
-    anim = { from: offset, to: target, start: performance.now(), dur: reduceMotion.matches ? 0 : 520 };
-    kick();
-  }
-
-  function go(dir) {
-    const from = anim ? anim.to : offset;
-    const i = dir > 0 ? Math.floor(from / step + 0.001) + 1 : Math.ceil(from / step - 0.001) - 1;
-    rest();
-    slideTo(i * step);
-  }
-
-  function syncToggle() {
-    const label = paused ? 'Play slideshow' : 'Pause slideshow';
-    toggle.setAttribute('aria-label', label);
-    toggle.title = label;
-    toggle.classList.toggle('is-paused', paused);
-  }
-
-  root.querySelector('[data-fp-prev]').addEventListener('click', function () { go(-1); });
-  root.querySelector('[data-fp-next]').addEventListener('click', function () { go(1); });
-  toggle.addEventListener('click', function () { paused = !paused; restUntil = 0; syncToggle(); kick(); });
-
-  // Pause while a mouse is over the cards
-  viewport.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') hovering = true; });
-  viewport.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') { hovering = false; kick(); } });
-
-  // Drag with a mouse or swipe with a finger
-  viewport.addEventListener('pointerdown', function (e) {
-    if (e.pointerType === 'mouse' && e.button !== 0) return;
-    eatClick = false;
-    anim = null;
-    drag = { id: e.pointerId, x: e.clientX, start: offset, moved: false };
-  });
-  viewport.addEventListener('pointermove', function (e) {
-    if (!drag || e.pointerId !== drag.id) return;
-    const dx = e.clientX - drag.x;
-    if (!drag.moved) {
-      if (Math.abs(dx) < 6) return;
-      drag.moved = true;
-      viewport.classList.add('is-dragging');
-      try { viewport.setPointerCapture(e.pointerId); } catch (err) {}
-    }
-    offset = drag.start - dx;
-    kick();
-  });
-  function endDrag(e) {
-    if (!drag || e.pointerId !== drag.id) return;
-    if (drag.moved) { eatClick = true; rest(); }
-    drag = null;
-    viewport.classList.remove('is-dragging');
-    offset = wrap(offset);
-    kick();
-  }
-  viewport.addEventListener('pointerup', endDrag);
-  viewport.addEventListener('pointercancel', endDrag);
-  // A drag should not also count as a click on the button under the pointer
-  viewport.addEventListener('click', function (e) {
-    if (eatClick) { e.preventDefault(); e.stopPropagation(); eatClick = false; }
-  }, true);
-  viewport.addEventListener('dragstart', function (e) { e.preventDefault(); });
-
-  // Keyboard users: stop sliding and bring the focused card into view
-  viewport.addEventListener('focusin', function (e) {
-    if (!e.target.matches(':focus-visible')) return;
-    focused = true;
-    viewport.scrollLeft = 0;
-    const card = e.target.closest('.fp-card');
-    if (!card) return;
-    const left = card.getBoundingClientRect().left - track.getBoundingClientRect().left;
-    const cur = wrap(offset);
-    if (left < cur || left + card.offsetWidth > cur + viewport.clientWidth) {
-      anim = null;
-      offset = cur;
-      slideTo(left);
-    }
-  });
-  viewport.addEventListener('focusout', function (e) {
-    if (!viewport.contains(e.relatedTarget)) { focused = false; kick(); }
-  });
-  viewport.addEventListener('scroll', function () { if (viewport.scrollLeft) viewport.scrollLeft = 0; });
-
-  // Only run while the banner is on screen
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) {
-      onScreen = entries[entries.length - 1].isIntersecting;
-      kick();
-    }).observe(viewport);
-  }
-
-  let resizeQueued = false;
-  window.addEventListener('resize', function () {
-    if (resizeQueued) return;
-    resizeQueued = true;
-    requestAnimationFrame(function () { resizeQueued = false; measure(); render(); });
-  });
-
-  if (reduceMotion.addEventListener) {
-    reduceMotion.addEventListener('change', function () { paused = reduceMotion.matches; syncToggle(); kick(); });
-  }
-
-  root.classList.add('is-ready');
-  root.querySelector('.fp-controls').hidden = false;
-  measure();
-  render();
-  syncToggle();
-  kick();
-})();
-</script>
-
+</footer>
+<a class="wa-float" href="https://wa.me/8801991111333?text=Hello%20JJ%20Works%2C%20I%20found%20you%20on%20jjworks.bd%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener" aria-label="Message us on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true" class="ico"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg><span>WhatsApp</span></a>
+<script src="assets/js/site.js" defer></script>
 </body>
 </html>
