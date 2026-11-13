@@ -853,7 +853,7 @@ def be_page(lang):
         <label>{t('f_phone', lang)}<input name="phone" type="tel" required autocomplete="tel" inputmode="tel" pattern="[0-9+ \\-]{{8,}}"></label>
         <label>{t('f_email', lang)}<input name="email" type="email" autocomplete="email"></label>
         <label>{t('be_count', lang)}<select name="number_of_flats">{counts}</select></label>
-        <label class="full">{t('be_flats', lang)}<textarea name="flat_addresses" rows="4" required placeholder="{E(t('be_flats_ph', lang)).replace(chr(92) + 'n', '&#10;')}"></textarea></label>
+        <label class="full">{t('be_flats', lang)}<textarea name="flat_addresses" rows="3" required placeholder="{E(t('be_flats_ph', lang)).replace(chr(92) + 'n', '&#10;')}"></textarea></label>
         <label>{t('be_budget', lang)}<input name="budget_bdt" type="number" min="0" step="1000" inputmode="numeric"></label>
         <label>{t('be_dates', lang)}<input name="visit_days"></label>
         <label class="full">{t('f_message', lang)}<textarea name="message" rows="3"></textarea></label>
