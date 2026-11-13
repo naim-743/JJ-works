@@ -138,7 +138,8 @@ def wa_link(text):
 
 
 def tel(p):
-    return "tel:+88" + p.replace("-", "").replace(" ", "")
+    d = "".join(c for c in p if c.isdigit())
+    return "tel:+" + (d if d.startswith("88") else "88" + d)
 
 
 BADGE = open(os.path.join(ROOT, "images/brand/jjworks-badge.svg"), encoding="utf-8").read().replace(
@@ -255,12 +256,12 @@ def org_jsonld(lang):
         "image": f"{SITE_URL}/images/og.jpg",
         "logo": f"{SITE_URL}/images/brand/jjworks-badge-1024.png",
         "email": EMAIL,
-        "telephone": "+88" + PEOPLE[0]["phones"][0].replace("-", ""),
+        "telephone": tel(PEOPLE[0]["phones"][0])[4:],
         "founder": {"@type": "Person", "name": "Engr. Md. Abu Naim Mia", "jobTitle": "Managing Partner"},
         "areaServed": ["Dhaka", "Tangail"],
         "address": [
             {"@type": "PostalAddress", "streetAddress": "House 105, Park Road, Mohakhali DOHS", "addressLocality": "Dhaka", "addressCountry": "BD"},
-            {"@type": "PostalAddress", "streetAddress": "308 Mujahidnagar, Rayerbag Road", "addressLocality": "Dhaka", "addressCountry": "BD"},
+            {"@type": "PostalAddress", "streetAddress": "54 Mujahidnagar, Rayerbag Road", "addressLocality": "Dhaka", "postalCode": "1362", "addressCountry": "BD"},
         ],
         "knowsAbout": [s[0][0] for s in SERVICES],
     }

@@ -9,14 +9,16 @@ FORM_ACTION = "https://formsubmit.co/" + EMAIL
 PEOPLE = [
     {"name": ("Engr. Md. Abu Naim Mia", "প্রকৌ. মো. আবু নাঈম মিয়া"),
      "role": ("Managing Partner", "ম্যানেজিং পার্টনার"),
-     "phones": ["01991-111333", "01540-704123"]},
+     "phones": ["+88 01991-111333", "+88 01540-704123"]},
+    {"name": ("Badrul Amin", "বদরুল আমিন"),
+     "role": ("", ""), "phones": ["+88 01921-553299"]},
 ]
 
 OFFICES = [
     ("House 105, Park Road, Mohakhali DOHS, Dhaka",
      "বাড়ি ১০৫, পার্ক রোড, মহাখালী ডিওএইচএস, ঢাকা"),
-    ("308 Mujahidnagar, Rayerbag Road, Dhaka",
-     "৩০৮ মুজাহিদনগর, রায়েরবাগ রোড, ঢাকা"),
+    ("54 Mujahidnagar, Rayerbag Road, Dhaka-1362",
+     "৫৪ মুজাহিদনগর, রায়েরবাগ রোড, ঢাকা-১৩৬২"),
 ]
 
 TYPES = {
