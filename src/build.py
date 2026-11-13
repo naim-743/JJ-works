@@ -296,7 +296,7 @@ def head(lang, depth, title, desc, path, og_image="images/og.jpg", jsonld=None):
 <meta property="og:image" content="{SITE_URL}/{og_image}">
 <meta property="og:locale" content="{'en_US' if lang == 'en' else 'bn_BD'}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#15202B">
+<meta name="theme-color" content="#F2FFFF">
 <link rel="icon" href="{up}favicon.ico" sizes="48x48">
 <link rel="icon" href="{up}favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="{up}apple-touch-icon.png">

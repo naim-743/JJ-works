@@ -340,3 +340,35 @@ p{margin:0 0 1em}
 @media (max-width:1000px){ .check-grid{grid-template-columns:repeat(2, minmax(0,1fr))} }
 @media (max-width:860px){ .be-hero-grid,.be-get-grid{grid-template-columns:1fr; gap:28px} }
 @media (max-width:520px){ .check-grid{grid-template-columns:1fr} }
+
+/* ===== Light theme: CMYK 5/0/0/0 (#F2FFFF) replaces the dark backgrounds ===== */
+:root{--sky:#F2FFFF; --sky-line:#C7D9D9}
+.site-header{background:var(--sky); color:var(--ink); border-bottom:1px solid var(--sky-line)}
+.brand-badge{outline:none}
+.site-nav a:not(.btn):hover{border-color:#F04A00}
+.menu-btn{border-color:var(--ink)}
+.hero,.services,.contact,.be-hero{background:var(--sky); color:var(--ink)}
+.hero-title{border-bottom-color:var(--sky-line)}
+.hero-text > p,.be-lede,.contact-intro > p{color:#38444E}
+.hero-visual{background:var(--sky)}
+.hero .btn-ghost{color:var(--ink)}
+.hero .btn-ghost:hover{background:var(--ink); color:var(--white); border-color:var(--ink)}
+.services{border-top:1px solid var(--sky-line); border-bottom:1px solid var(--sky-line)}
+.service-list{border-top-color:var(--sky-line)}
+.service-list li{border-bottom-color:var(--sky-line)}
+.service-list p{color:#4A5560}
+.service-list h3 a{text-decoration-color:#F04A00}
+.contact{border-top:1px solid var(--sky-line)}
+.contact-list dt{color:var(--slate)}
+.contact-list .who{color:#4A5560}
+.contact-list a{border-bottom-color:rgba(21,32,43,.35)}
+.contact-list a:hover{border-color:var(--ink)}
+.contact-list .map{color:var(--green)}
+.enquiry{border:1px solid var(--sky-line)}
+.be-fee{color:#C24400}
+.be-steps-box{border:1px solid var(--sky-line)}
+.site-footer{background:var(--sky); color:var(--slate); border-top:1px solid var(--sky-line)}
+.foot a:hover{color:var(--ink)}
+@media (max-width:860px){
+  .site-nav{background:var(--sky); border-top:1px solid var(--sky-line); border-bottom:1px solid var(--sky-line)}
+}
