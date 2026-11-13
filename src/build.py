@@ -370,9 +370,8 @@ def home(lang):
   <div class="wrap">
     <div class="sec-head">
       <h2 id="projects-h">{t('projects_h', lang)}</h2>
-      <p>{t('projects_p', lang)}</p>
+      <div class="filters" role="group" aria-label="{t('filter_label', lang)}">{filters}</div>
     </div>
-    <div class="filters" role="group" aria-label="{t('filter_label', lang)}">{filters}</div>
     <ul class="cards" id="project-list">
 {cards}
     </ul>
