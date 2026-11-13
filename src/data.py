@@ -30,7 +30,7 @@ TYPES = {
 
 # slug, name, location (or None), type, optional image focus (CSS object-position)
 PROJECTS = [
-    ("baitur-rahman-jame-mosque", ("Baitur Rahman Jame Mosque", "বাইতুর রহমান জামে মসজিদ"), None, "mosque", "50% 40%"),
+    ("baitur-rahman-jame-mosque", ("Baitur Rahman Jame Mosque", "বাইতুর রহমান জামে মসজিদ"), ("Vukta (Uttor Para), Kalihati, Tangail", "ভুক্তা (উত্তর পাড়া), কালিহাতী, টাঙ্গাইল"), "mosque", "50% 40%"),
     ("s-m-plaza", ("S M Plaza", "এস এম প্লাজা"), ("Victoria Road, Tangail", "ভিক্টোরিয়া রোড, টাঙ্গাইল"), "commercial", None),
     ("lake-garden", ("Lake Garden", "লেক গার্ডেন"), ("BA-81, 82, South Badda", "BA-81, 82, দক্ষিণ বাড্ডা"), "residential", None),
     ("paradise-nirjhor", ("Paradise Nirjhor", "প্যারাডাইস নির্ঝর"), None, "residential", "50% 15%"),
