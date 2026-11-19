@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /bn/admin/
 
 Sitemap: https://jjworks.bd/sitemap.xml

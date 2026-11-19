@@ -1,4 +1,5 @@
 /* JJ Works — site styles. Concrete, ink and site green; drawing title block as the signature. */
+[hidden]{display:none !important}
 :root{
   --paper:#EEF0EE;
   --white:#FAFBFA;
@@ -386,3 +387,18 @@ body{background:var(--sky)}
 .flats-strip .btn-ghost:hover{background:var(--ink); color:var(--white); border-color:var(--ink)}
 .flats-be a{color:var(--ink)}
 .chip{background:var(--white)}
+
+/* Live flats + admin */
+.form-status{margin:4px 0 0; padding:10px 14px; border-radius:8px; background:#E6F2EE; color:var(--green-deep); font-weight:500; font-size:14px}
+.form-status.is-error{background:#FBE9E7; color:#9B2116}
+.loading{color:var(--slate)}
+.btn-danger{background:#B3261E; color:#fff}
+.btn-danger:hover{background:#8C1D17}
+.admin-bar{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; padding-top:12px; border-top:1px dashed var(--line)}
+.seller-box{margin-top:12px; padding:10px 12px; background:#FFF6EF; border:1px solid #F7D2B5; border-radius:8px; font-size:14px; line-height:1.5}
+.seller-box a{color:inherit}
+.hidden-tag{left:auto; right:14px; background:#B3261E}
+.listing.is-hidden{opacity:.65}
+.admin-note{background:#FFF6EF; border:1px solid #F7D2B5; border-radius:10px; padding:10px 14px; font-size:14px}
+.admin-login{max-width:420px}
+.posted-code strong{font-size:1.2em; color:var(--green-deep)}

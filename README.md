@@ -28,15 +28,11 @@ The form sends to jjworks.info@gmail.com through FormSubmit (formsubmit.co). The
 
 Styles: `assets/css/site.css`. Script (mobile menu, project filter, form pre-fill): `assets/js/site.js`.
 
-## Flats for sale (Sell a flat / Buy a flat)
+## Flats for sale (Sell a flat / Buy a flat / Admin)
 
-- Sellers fill in the form at `/sell/`. FormSubmit emails the details and the building photo to jjworks.info@gmail.com. Nothing appears on the site automatically.
-- Buyers browse `/buy/` and contact JJ Works by WhatsApp or the enquiry form, quoting the listing number. Sellers' names and phone numbers are never published.
+- Sellers post at `/sell/`; the post appears on `/buy/` straight away. Photos are resized in the browser and stored in Supabase Storage.
+- Seller name, phone, email and address are stored separately and are visible only to the admin.
+- Each new post also emails jjworks.info@gmail.com (via FormSubmit) with the details and the seller's contact.
+- Admin: `/admin/`, sign in as jjworks.info@gmail.com. Hide / show posts and mark them sold. While signed in, the same buttons appear on `/buy/`.
 
-To publish an approved flat:
-
-1. Save the seller's photo as `images/listings/F-001.jpg` (next number each time).
-2. Add an entry to `LISTINGS` in `src/listings.py` (copy the example at the top of that file).
-3. Run `python3 src/build.py`, then commit and push.
-
-To mark a flat as sold, set `"sold": True` (it stays listed with a "Sold" label), or delete its entry.
+Backend: Supabase project `jjworks` (URL and public anon key in `src/data.py`). Database tables, security rules and the photo bucket are created by `src/supabase-setup.sql` (run once in the Supabase SQL editor). Public sign-ups are disabled; the admin user is added in Supabase under Authentication → Users.

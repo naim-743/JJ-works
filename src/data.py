@@ -6,6 +6,10 @@ EMAIL = "jjworks.info@gmail.com"
 WHATSAPP = "8801991111333"          # number used by every WhatsApp button
 FORM_ACTION = "https://formsubmit.co/" + EMAIL
 
+# Supabase project for the flats pages (Sell / Buy / Admin). The anon key is public by design.
+SUPABASE_URL = "https://kxknqnmitzpdldojqyrg.supabase.co"
+SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt4a25xbm1pdHpwZGxkb2pxeXJnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTUwOTEzNTksImV4cCI6MjExMDY2NzM1OX0.Jpf0yJTYEwx6sSv3JX2cpFJclZ5Qwfd9Xt8xxImbS9s"
+
 PEOPLE = [
     {"name": ("Engr. Md. Abu Naim Mia", "প্রকৌ. মো. আবু নাঈম মিয়া"),
      "role": ("Managing Partner", "ম্যানেজিং পার্টনার"),
