@@ -140,6 +140,34 @@ UI = {
     "a_failed": ("That change did not save.", "পরিবর্তনটি সংরক্ষণ হয়নি।"),
     "a_note": ("You are signed in as admin. Use Hide post on any post that looks fake.", "আপনি অ্যাডমিন হিসেবে সাইন ইন করেছেন। ভুয়া মনে হলে 'বিজ্ঞাপন লুকান' চাপুন।"),
     "a_open": ("Open admin page", "অ্যাডমিন পেজ খুলুন"),
+    "a_delete": ("Delete post", "বিজ্ঞাপন মুছুন"),
+    "a_delete_confirm": ("Delete post {code} for good? This removes the post, the seller's details and the photo, and cannot be undone.",
+                         "{code} বিজ্ঞাপনটি স্থায়ীভাবে মুছবেন? বিজ্ঞাপন, বিক্রেতার তথ্য ও ছবি মুছে যাবে, আর ফেরত আনা যাবে না।"),
+    "a_edit_link": ("Seller's edit link:", "বিক্রেতার এডিট লিংক:"),
+    "a_no_edit_link": ("No edit link (posted before editing was added).", "এডিট লিংক নেই (এডিট সুবিধা চালুর আগে দেওয়া)।"),
+    "copy": ("Copy link", "লিংক কপি করুন"),
+    "copied": ("Copied", "কপি হয়েছে"),
+    "st_edit_h": ("Save your edit link", "আপনার এডিট লিংক সংরক্ষণ করুন"),
+    "st_edit_p": ("Use this private link to change your post, mark it sold or delete it. Anyone with this link can edit your post, so do not share it.",
+                  "এই ব্যক্তিগত লিংক দিয়ে আপনার বিজ্ঞাপন পরিবর্তন, বিক্রি হয়েছে চিহ্নিত বা মুছে ফেলতে পারবেন। লিংকটি যার কাছে থাকবে সে-ই এডিট করতে পারবে, তাই কাউকে দেবেন না।"),
+    "st_wa_save": ("Save to my WhatsApp", "আমার হোয়াটসঅ্যাপে সংরক্ষণ করুন"),
+    "wa_self": ("My JJ Works flat post {code}. Private edit link: {url}", "জেজে ওয়ার্কসে আমার ফ্ল্যাটের বিজ্ঞাপন {code}। ব্যক্তিগত এডিট লিংক: {url}"),
+    "e_title": ("Edit your flat post", "আপনার ফ্ল্যাটের বিজ্ঞাপন এডিট করুন"),
+    "e_intro": ("Change any details and press Save changes. To change the photo, choose a new one; otherwise the current photo stays.",
+                "যেকোনো তথ্য পরিবর্তন করে 'পরিবর্তন সংরক্ষণ করুন' চাপুন। ছবি বদলাতে নতুন ছবি বেছে নিন; না হলে আগের ছবিই থাকবে।"),
+    "e_loading": ("Loading your post…", "আপনার বিজ্ঞাপন লোড হচ্ছে…"),
+    "e_current": ("Current photo", "বর্তমান ছবি"),
+    "e_photo": ("New photo (optional)", "নতুন ছবি (ঐচ্ছিক)"),
+    "e_save": ("Save changes", "পরিবর্তন সংরক্ষণ করুন"),
+    "e_saving": ("Saving…", "সংরক্ষণ হচ্ছে…"),
+    "e_saved": ("Saved. Your post is updated.", "সংরক্ষণ হয়েছে। আপনার বিজ্ঞাপন আপডেট হয়েছে।"),
+    "e_delete": ("Delete my post", "আমার বিজ্ঞাপন মুছে ফেলুন"),
+    "e_delete_confirm": ("Delete your post for good? This cannot be undone.", "আপনার বিজ্ঞাপন স্থায়ীভাবে মুছবেন? এটি ফেরত আনা যাবে না।"),
+    "e_deleted": ("Your post has been deleted.", "আপনার বিজ্ঞাপন মুছে ফেলা হয়েছে।"),
+    "e_bad_link": ("This edit link does not work. Check that you copied the whole link, or ask JJ Works on WhatsApp to send it again.",
+                   "এই এডিট লিংকটি কাজ করছে না। পুরো লিংক কপি করেছেন কি না দেখুন, অথবা হোয়াটসঅ্যাপে জেজে ওয়ার্কসকে আবার পাঠাতে বলুন।"),
+    "e_status_h": ("Status", "অবস্থা"),
+    "l_edit": ("Edit my post", "আমার বিজ্ঞাপন এডিট করুন"),
     # buy page
     "buy_title": ("Flats for sale", "বিক্রয়যোগ্য ফ্ল্যাট"),
     "buy_meta": ("Flats for sale in Dhaka and Tangail, posted by their owners. Contact JJ Works to visit or to speak with the seller.",
@@ -698,7 +726,9 @@ def simple_page(lang, path, title, desc, body, noindex=False):
 FLAT_JS_KEYS = ["l_listing", "l_size", "l_sqft", "l_rooms", "l_rooms_v", "l_floor", "l_floor_v", "l_neg", "l_sold",
                 "l_ask", "l_form", "l_wa", "fac_parking", "fac_lift", "fac_generator", "s_fac", "buy_empty_h", "buy_empty_p",
                 "st_sending", "err_post", "err_photo", "err_setup", "err_load", "a_hide", "a_show", "a_sold", "a_unsold",
-                "a_hidden", "a_seller", "a_posted", "a_failed", "a_bad_login", "a_loading"]
+                "a_hidden", "a_seller", "a_posted", "a_failed", "a_bad_login", "a_loading", "a_delete", "a_delete_confirm",
+                "a_edit_link", "a_no_edit_link", "copy", "copied", "wa_self", "e_saving", "e_saved", "e_delete_confirm",
+                "e_deleted", "e_bad_link", "l_edit", "st_view"]
 
 
 def flats_config(lang, home):
@@ -706,6 +736,7 @@ def flats_config(lang, home):
         "url": SUPABASE_URL.rstrip("/"), "key": SUPABASE_ANON_KEY, "lang": lang, "email": EMAIL,
         "whatsapp": WHATSAPP, "siteUrl": SITE_URL, "waIcon": ICON_WA,
         "thanksUrl": home + "sell/thanks/", "buyUrl": home + "buy/", "adminUrl": home + "admin/",
+        "editUrl": SITE_URL + ("/bn" if lang == "bn" else "") + "/sell/edit/", "editPath": home + "sell/edit/",
         "strings": {k: t(k, lang) for k in FLAT_JS_KEYS},
     }
     return ('<script id="flats-config" type="application/json">'
@@ -714,6 +745,49 @@ def flats_config(lang, home):
 
 def flats_script(up):
     return f'<script src="{up}assets/js/flats.js" defer></script>'
+
+
+def sell_form(lang, mode):
+    fac = "".join(f'<label class="check"><input type="checkbox" name="{k}"> {t("fac_" + k, lang)}</label>' for k in ("parking", "lift", "generator"))
+    edit = mode == "edit"
+    photo_label = t("e_photo", lang) if edit else t("s_photo", lang)
+    photo_req = "" if edit else " required"
+    current = f'<figure class="full current-photo" id="current-photo" hidden><figcaption>{t("e_current", lang)}</figcaption><img alt=""></figure>' if edit else ""
+    consent = "" if edit else f'<label class="check full consent"><input type="checkbox" name="consent" required> {t("s_consent", lang)}</label>'
+    extra = (f'<div class="full edit-extra"><span class="label-text">{t("e_status_h", lang)}</span><div class="edit-actions">'
+             f'<button type="button" class="btn btn-ghost btn-sm" id="edit-sold" data-sold="{t("a_sold", lang)}" data-unsold="{t("a_unsold", lang)}">{t("a_sold", lang)}</button>'
+             f'<button type="button" class="btn btn-danger btn-sm" id="edit-delete">{t("e_delete", lang)}</button></div></div>') if edit else ""
+    return f"""<form class="enquiry sell-form" id="sell-form" data-mode="{mode}" novalidate{' hidden' if edit else ''}>
+      <noscript><p class="form-status is-error full">{t('noscript', lang)}</p></noscript>
+      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <fieldset class="full" aria-labelledby="g-flat"><h2 class="group-h full" id="g-flat">{t('g_flat', lang)}</h2>
+        <label class="full">{t('s_location', lang)}<input name="flat_location" required minlength="3" maxlength="200" placeholder="{E(t('s_location_ph', lang))}"></label>
+        <label>{t('s_size', lang)}<input name="size_sqft" type="number" min="100" max="100000" step="1" inputmode="numeric" required></label>
+        <label>{t('s_price', lang)}<input name="price_bdt" type="number" min="0" step="1" inputmode="numeric" required></label>
+        <label class="check full"><input type="checkbox" name="negotiable"> {t('s_negotiable', lang)}</label>
+        <label>{t('s_beds', lang)}<input name="bedrooms" type="number" min="0" max="20" inputmode="numeric" required></label>
+        <label>{t('s_baths', lang)}<input name="bathrooms" type="number" min="0" max="20" inputmode="numeric" required></label>
+        <label>{t('s_floor', lang)}<input name="floor" type="number" min="0" max="100" inputmode="numeric" required></label>
+        <label>{t('s_total', lang)}<input name="total_floors" type="number" min="1" max="100" inputmode="numeric" required></label>
+        <div class="full"><span class="label-text">{t('s_fac', lang)}</span><div class="checks">{fac}</div></div>
+        <label class="full">{t('s_details', lang)}<textarea name="details" rows="3" maxlength="2000" placeholder="{E(t('s_details_ph', lang))}"></textarea></label>
+        {current}
+        <label class="full">{photo_label}<input name="photo" type="file" accept="image/*"{photo_req}><small>{t('s_photo_hint', lang)}</small></label>
+      </fieldset>
+      <fieldset class="full" aria-labelledby="g-you"><h2 class="group-h full" id="g-you">{t('g_you', lang)}</h2>
+        <label>{t('s_name', lang)}<input name="name" required maxlength="120" autocomplete="name"></label>
+        <label>{t('f_phone', lang)}<input name="phone" type="tel" required autocomplete="tel" inputmode="tel" pattern="[0-9+ \\-]{{8,}}" maxlength="30"></label>
+        <label>{t('f_email', lang)}<input name="email" type="email" maxlength="200" autocomplete="email"></label>
+        <label>{t('s_address', lang)}<input name="contact_address" required maxlength="300" autocomplete="street-address"></label>
+      </fieldset>
+      {consent}
+      <div class="full form-foot">
+        <button class="btn btn-primary" type="submit">{t('e_save', lang) if edit else t('s_send', lang)}</button>
+      </div>
+      {extra}
+      <p class="form-status full" id="sell-status" role="status" hidden></p>
+    </form>
+"""
 
 
 def sell_page(lang):
@@ -729,35 +803,7 @@ def sell_page(lang):
       <ol class="mini-steps">{steps}</ol>
       <p class="aside-link"><a href="{home}buy/">{t('flats_buy_cta', lang)}</a></p>
     </div>
-    <form class="enquiry sell-form" id="sell-form" novalidate>
-      <noscript><p class="form-status is-error full">{t('noscript', lang)}</p></noscript>
-      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <fieldset class="full" aria-labelledby="g-flat"><h2 class="group-h full" id="g-flat">{t('g_flat', lang)}</h2>
-        <label class="full">{t('s_location', lang)}<input name="flat_location" required minlength="3" maxlength="200" placeholder="{E(t('s_location_ph', lang))}"></label>
-        <label>{t('s_size', lang)}<input name="size_sqft" type="number" min="100" max="100000" step="1" inputmode="numeric" required></label>
-        <label>{t('s_price', lang)}<input name="price_bdt" type="number" min="0" step="1" inputmode="numeric" required></label>
-        <label class="check full"><input type="checkbox" name="negotiable"> {t('s_negotiable', lang)}</label>
-        <label>{t('s_beds', lang)}<input name="bedrooms" type="number" min="0" max="20" inputmode="numeric" required></label>
-        <label>{t('s_baths', lang)}<input name="bathrooms" type="number" min="0" max="20" inputmode="numeric" required></label>
-        <label>{t('s_floor', lang)}<input name="floor" type="number" min="0" max="100" inputmode="numeric" required></label>
-        <label>{t('s_total', lang)}<input name="total_floors" type="number" min="1" max="100" inputmode="numeric" required></label>
-        <div class="full"><span class="label-text">{t('s_fac', lang)}</span><div class="checks">{fac}</div></div>
-        <label class="full">{t('s_details', lang)}<textarea name="details" rows="3" maxlength="2000" placeholder="{E(t('s_details_ph', lang))}"></textarea></label>
-        <label class="full">{t('s_photo', lang)}<input name="photo" type="file" accept="image/*" required><small>{t('s_photo_hint', lang)}</small></label>
-      </fieldset>
-      <fieldset class="full" aria-labelledby="g-you"><h2 class="group-h full" id="g-you">{t('g_you', lang)}</h2>
-        <label>{t('s_name', lang)}<input name="name" required maxlength="120" autocomplete="name"></label>
-        <label>{t('f_phone', lang)}<input name="phone" type="tel" required autocomplete="tel" inputmode="tel" pattern="[0-9+ \\-]{{8,}}" maxlength="30"></label>
-        <label>{t('f_email', lang)}<input name="email" type="email" maxlength="200" autocomplete="email"></label>
-        <label>{t('s_address', lang)}<input name="contact_address" required maxlength="300" autocomplete="street-address"></label>
-      </fieldset>
-      <label class="check full consent"><input type="checkbox" name="consent" required> {t('s_consent', lang)}</label>
-      <div class="full form-foot">
-        <button class="btn btn-primary" type="submit">{t('s_send', lang)}</button>
-      </div>
-      <p class="form-status full" id="sell-status" role="status" hidden></p>
-    </form>
-  </div>
+{sell_form(lang, 'new')}  </div>
 </section>
 {flats_config(lang, home)}{flats_script(up)}
 """
@@ -768,14 +814,43 @@ def sell_page(lang):
   <h1>{t('st_h', lang)}</h1>
   <p id="posted-wrap" class="posted-code">{t('st_code', lang)} <strong id="posted-code"></strong>. <a id="posted-link" href="{home}buy/">{t('st_view', lang)}</a></p>
   <p>{t('st_p', lang)}</p>
+  <div class="edit-link-box" id="edit-link-box" hidden>
+    <h2>{t('st_edit_h', lang)}</h2>
+    <p>{t('st_edit_p', lang)}</p>
+    <input type="text" id="edit-link" readonly aria-label="{t('st_edit_h', lang)}">
+    <div class="hero-actions">
+      <button type="button" class="btn btn-primary" id="copy-edit-link">{t('copy', lang)}</button>
+      <a class="btn btn-wa" id="wa-edit-link" href="#" target="_blank" rel="noopener">{ICON_WA}{t('st_wa_save', lang)}</a>
+    </div>
+  </div>
   <div class="hero-actions">
-    <a class="btn btn-primary" href="{home}buy/">{t('flats_buy_cta', lang)}</a>
+    <a class="btn btn-ghost" href="{home}buy/">{t('flats_buy_cta', lang)}</a>
     <a class="btn btn-wa" href="{wa_link(t('wa_text', lang))}" target="_blank" rel="noopener">{ICON_WA}{t('whatsapp_us', lang)}</a>
   </div>
 </div></section>
 {flats_config(lang, home)}{flats_script(up)}
 """
     simple_page(lang, "sell/thanks/", f"{t('st_h', lang)} | JJ Works", t("st_p", lang), thanks_body, noindex=True)
+
+
+def edit_page(lang):
+    def body(up, home):
+        return f"""<section class="form-page">
+  <div class="wrap form-page-grid">
+    <div class="form-page-intro">
+      <h1>{t('e_title', lang)}</h1>
+      <p>{t('e_intro', lang)}</p>
+      <p class="aside-link"><a href="{home}buy/" id="edit-view-link">{t('st_view', lang)}</a></p>
+    </div>
+    <div>
+      <p class="form-status" id="edit-msg" role="status">{t('e_loading', lang)}</p>
+      {sell_form(lang, 'edit')}
+    </div>
+  </div>
+</section>
+{flats_config(lang, home)}{flats_script(up)}
+"""
+    simple_page(lang, "sell/edit/", f"{t('e_title', lang)} | JJ Works", t("e_intro", lang), body, noindex=True)
 
 
 def buy_page(lang):
@@ -932,7 +1007,7 @@ def sitemap():
     xml = ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
            'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + "\n".join(items) + "\n</urlset>\n")
     write("sitemap.xml", xml)
-    write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /bn/admin/\n\nSitemap: {SITE_URL}/sitemap.xml\n")
+    write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /bn/admin/\nDisallow: /sell/edit/\nDisallow: /bn/sell/edit/\n\nSitemap: {SITE_URL}/sitemap.xml\n")
 
 
 def write(rel, content):
@@ -950,8 +1025,9 @@ if __name__ == "__main__":
         buy_page(lang)
         be_page(lang)
         admin_page(lang)
+        edit_page(lang)
         for i in range(len(PROJECTS)):
             project_page(i, lang)
     not_found()
     sitemap()
-    print(f"Built {2 * (6 + len(PROJECTS)) + 2 + 1} pages.")
+    print(f"Built {2 * (7 + len(PROJECTS)) + 2 + 1} pages.")

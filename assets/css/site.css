@@ -402,3 +402,17 @@ body{background:var(--sky)}
 .admin-note{background:#FFF6EF; border:1px solid #F7D2B5; border-radius:10px; padding:10px 14px; font-size:14px}
 .admin-login{max-width:420px}
 .posted-code strong{font-size:1.2em; color:var(--green-deep)}
+
+/* Seller edit link + edit page */
+.edit-link-box{max-width:640px; margin:24px 0; padding:18px 20px; background:var(--white); border:1px solid var(--sky-line); border-left:5px solid #F04A00; border-radius:12px}
+.edit-link-box h2{font-size:22px; margin-bottom:6px}
+.edit-link-box p{font-size:14.5px; color:#38444E; margin-bottom:12px}
+.edit-link-box input{width:100%; font:400 14px var(--body); padding:8px 10px; border:1.5px solid var(--line); border-radius:6px; background:var(--paper)}
+.edit-link-box .hero-actions{margin-top:12px}
+.current-photo{margin:0}
+.current-photo figcaption{font-size:14px; font-weight:500; margin-bottom:6px}
+.current-photo img{width:180px; height:140px; object-fit:cover; border-radius:8px; border:1px solid var(--line)}
+.edit-extra{border-top:1px solid var(--line); padding-top:14px}
+.edit-actions{display:flex; gap:10px; flex-wrap:wrap}
+.btn-delete{color:#B3261E; border-color:#B3261E}
+.btn-delete:hover{background:#B3261E; color:#fff; border-color:#B3261E}

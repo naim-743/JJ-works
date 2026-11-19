@@ -33,6 +33,8 @@ create table if not exists public.listing_contacts (
   address     text not null check (char_length(address) between 1 and 300)
 );
 
+alter table public.listing_contacts add column if not exists edit_key text;
+
 alter table public.listings enable row level security;
 alter table public.listing_contacts enable row level security;
 
@@ -51,6 +53,10 @@ drop policy if exists "Admin can update listings" on public.listings;
 create policy "Admin can update listings" on public.listings
   for update using (public.is_admin()) with check (public.is_admin());
 
+drop policy if exists "Admin can delete listings" on public.listings;
+create policy "Admin can delete listings" on public.listings
+  for delete using (public.is_admin());
+
 drop policy if exists "Admin can read seller contacts" on public.listing_contacts;
 create policy "Admin can read seller contacts" on public.listing_contacts
   for select using (public.is_admin());
@@ -59,16 +65,19 @@ create policy "Admin can read seller contacts" on public.listing_contacts
 revoke all on public.listings, public.listing_contacts from anon, authenticated;
 grant select on public.listings to anon, authenticated;
 grant update (hidden, sold) on public.listings to authenticated;
+grant delete on public.listings to authenticated;
 grant select on public.listing_contacts to authenticated;
 
 -- No insert policies: new posts only come in through submit_listing() below.
 
 -- ---------- Posting a flat ----------
-create or replace function public.submit_listing(p jsonb) returns text
+drop function if exists public.submit_listing(jsonb);
+create or replace function public.submit_listing(p jsonb) returns jsonb
 language plpgsql security definer set search_path = public as $$
 declare
   new_id   bigint;
   new_code text;
+  new_key  text := replace(gen_random_uuid()::text, '-', '') || replace(gen_random_uuid()::text, '-', '');
 begin
   if coalesce(p ->> 'website', '') <> '' then          -- spam-bot honeypot
     raise exception 'rejected';
@@ -91,15 +100,80 @@ begin
           nullif(trim(p ->> 'details'), ''), p ->> 'photo_path', p ->> 'lang')
   returning id, code into new_id, new_code;
 
-  insert into listing_contacts (listing_id, name, phone, email, address)
+  insert into listing_contacts (listing_id, name, phone, email, address, edit_key)
   values (new_id, trim(p ->> 'name'), trim(p ->> 'phone'),
-          nullif(trim(p ->> 'email'), ''), trim(p ->> 'address'));
+          nullif(trim(p ->> 'email'), ''), trim(p ->> 'address'), new_key);
 
-  return new_code;
+  return jsonb_build_object('code', new_code, 'key', new_key);
+end $$;
+
+-- ---------- Seller edits (need the secret edit key from their edit link) ----------
+create or replace function public.seller_listing_id(p_code text, p_key text) returns bigint
+language sql stable security definer set search_path = public as $$
+  select l.id from listings l join listing_contacts c on c.listing_id = l.id
+  where l.code = p_code and c.edit_key is not null and length(p_key) >= 32 and c.edit_key = p_key
+$$;
+revoke all on function public.seller_listing_id(text, text) from public, anon, authenticated;
+
+create or replace function public.get_my_listing(p_code text, p_key text) returns jsonb
+language plpgsql stable security definer set search_path = public as $$
+declare lid bigint := seller_listing_id(p_code, p_key); r jsonb;
+begin
+  if lid is null then raise exception 'not found'; end if;
+  select to_jsonb(l) || jsonb_build_object('name', c.name, 'phone', c.phone, 'email', c.email, 'address', c.address)
+    into r from listings l join listing_contacts c on c.listing_id = l.id where l.id = lid;
+  return r;
+end $$;
+
+create or replace function public.update_my_listing(p_code text, p_key text, p jsonb) returns void
+language plpgsql security definer set search_path = public as $$
+declare lid bigint := seller_listing_id(p_code, p_key);
+begin
+  if lid is null then raise exception 'not found'; end if;
+  if p ? 'photo_path' and coalesce(p ->> 'photo_path', '') !~ '^[a-z0-9-]{20,60}\.jpg$' then
+    raise exception 'photo missing';
+  end if;
+  update listings set
+    location = trim(p ->> 'location'), size_sqft = (p ->> 'size_sqft')::int, price_bdt = (p ->> 'price_bdt')::bigint,
+    negotiable = coalesce((p ->> 'negotiable')::boolean, false),
+    bedrooms = (p ->> 'bedrooms')::int, bathrooms = (p ->> 'bathrooms')::int,
+    floor = (p ->> 'floor')::int, total_floors = (p ->> 'total_floors')::int,
+    parking = coalesce((p ->> 'parking')::boolean, false), lift = coalesce((p ->> 'lift')::boolean, false),
+    generator = coalesce((p ->> 'generator')::boolean, false),
+    details = nullif(trim(p ->> 'details'), ''),
+    photo_path = coalesce(p ->> 'photo_path', photo_path)
+  where id = lid;
+  update listing_contacts set name = trim(p ->> 'name'), phone = trim(p ->> 'phone'),
+    email = nullif(trim(p ->> 'email'), ''), address = trim(p ->> 'address')
+  where listing_id = lid;
+end $$;
+
+create or replace function public.set_my_listing_sold(p_code text, p_key text, p_sold boolean) returns void
+language plpgsql security definer set search_path = public as $$
+declare lid bigint := seller_listing_id(p_code, p_key);
+begin
+  if lid is null then raise exception 'not found'; end if;
+  update listings set sold = p_sold where id = lid;
+end $$;
+
+create or replace function public.delete_my_listing(p_code text, p_key text) returns void
+language plpgsql security definer set search_path = public as $$
+declare lid bigint := seller_listing_id(p_code, p_key);
+begin
+  if lid is null then raise exception 'not found'; end if;
+  delete from listings where id = lid;
 end $$;
 
 revoke all on function public.submit_listing(jsonb) from public;
+revoke all on function public.get_my_listing(text, text) from public;
+revoke all on function public.update_my_listing(text, text, jsonb) from public;
+revoke all on function public.set_my_listing_sold(text, text, boolean) from public;
+revoke all on function public.delete_my_listing(text, text) from public;
 grant execute on function public.submit_listing(jsonb) to anon, authenticated;
+grant execute on function public.get_my_listing(text, text) to anon, authenticated;
+grant execute on function public.update_my_listing(text, text, jsonb) to anon, authenticated;
+grant execute on function public.set_my_listing_sold(text, text, boolean) to anon, authenticated;
+grant execute on function public.delete_my_listing(text, text) to anon, authenticated;
 
 -- ---------- Photo storage ----------
 insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)

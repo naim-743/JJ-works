@@ -2,5 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /bn/admin/
+Disallow: /sell/edit/
+Disallow: /bn/sell/edit/
 
 Sitemap: https://jjworks.bd/sitemap.xml
