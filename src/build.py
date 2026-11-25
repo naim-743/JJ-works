@@ -1025,7 +1025,25 @@ def write(rel, content):
         f.write(content)
 
 
+def make_webp():
+    """Create a .webp copy of any project photo that doesn't have one yet."""
+    try:
+        from PIL import Image
+    except ImportError:
+        print("Pillow not installed: skipping WebP copies")
+        return
+    folder = os.path.join(ROOT, "images", "projects")
+    for name in os.listdir(folder):
+        if name.lower().endswith((".jpg", ".jpeg", ".png")):
+            src = os.path.join(folder, name)
+            dst = os.path.splitext(src)[0] + ".webp"
+            if not os.path.exists(dst):
+                Image.open(src).convert("RGB").save(dst, "WEBP", quality=78, method=6)
+                print("made", os.path.relpath(dst, ROOT))
+
+
 if __name__ == "__main__":
+    make_webp()
     for lang in LANGS:
         home(lang)
         thanks(lang)

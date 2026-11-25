@@ -1,0 +1,41 @@
+# Rebuilds the website whenever content in src/ or a project photo changes,
+# so edits made on github.com go live without running anything yourself.
+name: Build site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "images/projects/**"
+      - "assets/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-site
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow
+      - run: python3 src/build.py
+      - name: Save the rebuilt pages
+        run: |
+          git config user.name "jjworks-build"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+          else
+            git commit -m "Rebuild site"
+            git push
+          fi
