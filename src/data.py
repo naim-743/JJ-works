@@ -24,7 +24,7 @@ PEOPLE = [
 FACEBOOK = [
     ("https://www.facebook.com/jjworks.info/", ("JJ Works", "জেজে ওয়ার্কস")),
     ("https://www.facebook.com/profile.php?id=61570994559265", ("Facebook page 2", "ফেসবুক পেজ ২")),
-    ("https://www.facebook.com/profile.php?id=61597007037588", ("Facebook page 3", "ফেসবুক পেজ ৩")),
+    ("https://www.facebook.com/jjsportszone/", ("JJ Sports Zone", "জেজে স্পোর্টস জোন")),
 ]
 
 OFFICES = [
