@@ -250,6 +250,7 @@ UI = {
     "c_offices": ("Offices", "অফিস"),
     "c_email": ("Email", "ইমেইল"),
     "c_map": ("Open in Google Maps", "গুগল ম্যাপে দেখুন"),
+    "c_facebook": ("Facebook", "ফেসবুক"),
     "footer": ("JJ Works, a design house. Dhaka, Bangladesh.", "জেজে ওয়ার্কস, একটি ডিজাইন হাউস। ঢাকা, বাংলাদেশ।"),
     # project pages
     "p_back": ("All projects", "সব প্রকল্প"),
@@ -325,6 +326,8 @@ def tel(p):
 BADGE = open(os.path.join(ROOT, "images/brand/jjworks-badge.svg"), encoding="utf-8").read().replace(
     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">',
     '<svg class="brand-badge" viewBox="0 0 100 100" aria-hidden="true" focusable="false">')
+
+ICON_FB = '<svg viewBox="0 0 24 24" aria-hidden="true" class="ico ico-fb"><path fill="currentColor" d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07Z"/></svg>'
 
 ICON_WA = '<svg viewBox="0 0 24 24" aria-hidden="true" class="ico"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>'
 
@@ -403,7 +406,7 @@ def footer(lang, depth, wa_text=None):
 <footer class="site-footer">
   <div class="wrap foot">
     <p>© {year} {t('footer', lang)}</p>
-    <p><a href="{tel(PEOPLE[0]['phones'][0])}">{num(PEOPLE[0]['phones'][0], lang)}</a> <span aria-hidden="true">/</span> <a href="mailto:{EMAIL}">{EMAIL}</a></p>
+    <p class="foot-links"><a href="{tel(PEOPLE[0]['phones'][0])}">{num(PEOPLE[0]['phones'][0], lang)}</a> <span aria-hidden="true">/</span> <a href="mailto:{EMAIL}">{EMAIL}</a> <span aria-hidden="true">/</span> <a class="foot-fb" href="{FACEBOOK[0][0]}" target="_blank" rel="noopener" aria-label="JJ Works on Facebook">{ICON_FB}</a></p>
   </div>
 </footer>
 <a class="wa-float" href="{wa_link(wa_text or t('wa_text', lang))}" target="_blank" rel="noopener" aria-label="{t('whatsapp_us', lang)}">{ICON_WA}<span>{t('whatsapp', lang)}</span></a>
@@ -446,6 +449,7 @@ def org_jsonld(lang):
             {"@type": "PostalAddress", "streetAddress": "54 Mujahidnagar, Rayerbag Road", "addressLocality": "Dhaka", "postalCode": "1362", "addressCountry": "BD"},
         ],
         "knowsAbout": [s[0][0] for s in SERVICES],
+        "sameAs": [u for u, _ in FACEBOOK],
     }
 
 
@@ -459,6 +463,7 @@ def contact_section(lang, up):
         f'<li>{E(pick(o, lang))} <a class="map" href="https://www.google.com/maps/search/?api=1&query={quote(o[0])}" target="_blank" rel="noopener">{t("c_map", lang)}</a></li>'
         for o in OFFICES)
     nxt = page_url(lang, "thanks/")
+    fb = "".join(f'<li><a href="{E(u)}" target="_blank" rel="noopener">{ICON_FB}{E(pick(lbl, lang))}</a></li>' for u, lbl in FACEBOOK)
     return f"""<section class="contact" id="contact" aria-labelledby="contact-h">
   <div class="wrap contact-grid">
     <div class="contact-intro">
@@ -469,6 +474,7 @@ def contact_section(lang, up):
         <dt>{t('c_phone', lang)}</dt><dd><ul>{phones}</ul></dd>
         <dt>{t('c_offices', lang)}</dt><dd><ul>{offices}</ul></dd>
         <dt>{t('c_email', lang)}</dt><dd><a href="mailto:{EMAIL}">{EMAIL}</a></dd>
+        <dt>{t('c_facebook', lang)}</dt><dd><ul class="fb-list">{fb}</ul></dd>
       </dl>
     </div>
     <form class="enquiry" action="{FORM_ACTION}" method="POST">

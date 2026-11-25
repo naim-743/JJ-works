@@ -416,3 +416,14 @@ body{background:var(--sky)}
 .edit-actions{display:flex; gap:10px; flex-wrap:wrap}
 .btn-delete{color:#B3261E; border-color:#B3261E}
 .btn-delete:hover{background:#B3261E; color:#fff; border-color:#B3261E}
+
+/* Contact: one-line heading, Facebook links */
+.contact h2{max-width:none; font-size:clamp(24px,2.5vw,34px); white-space:nowrap; margin-bottom:14px}
+.fb-list{display:flex !important; flex-wrap:wrap; gap:8px 18px !important}
+.fb-list a{display:inline-flex; align-items:center; gap:6px; border-bottom:0 !important; margin-right:0 !important; color:#1A56C4 !important}
+.fb-list a:hover{text-decoration:underline; text-underline-offset:3px}
+.ico-fb{width:18px; height:18px; color:#1877F2}
+.foot-links{display:flex; align-items:center; gap:8px; flex-wrap:wrap}
+.foot-fb{display:inline-flex}
+.foot-fb .ico-fb{width:20px; height:20px}
+@media (max-width:420px){ .contact h2{white-space:normal} }

@@ -20,6 +20,13 @@ PEOPLE = [
      "role": ("", ""), "phones": ["+88 01648-044469"]},
 ]
 
+# Facebook pages: (link, (English label, Bangla label))
+FACEBOOK = [
+    ("https://www.facebook.com/jjworks.info/", ("JJ Works", "জেজে ওয়ার্কস")),
+    ("https://www.facebook.com/profile.php?id=61570994559265", ("Facebook page 2", "ফেসবুক পেজ ২")),
+    ("https://www.facebook.com/profile.php?id=61597007037588", ("Facebook page 3", "ফেসবুক পেজ ৩")),
+]
+
 OFFICES = [
     ("House 105, Park Road, Mohakhali DOHS, Dhaka",
      "বাড়ি ১০৫, পার্ক রোড, মহাখালী ডিওএইচএস, ঢাকা"),
