@@ -522,6 +522,8 @@ def home(lang):
     filters = f'<button type="button" class="chip" aria-pressed="true" data-filter="all">{t("filter_all", lang)} <span>{num(n, lang)}</span></button>'
     for k, v in TYPES.items():
         c = sum(1 for p in PROJECTS if p[3] == k)
+        if not c:
+            continue
         filters += f'<button type="button" class="chip" aria-pressed="false" data-filter="{k}">{E(pick(v, lang))} <span>{num(c, lang)}</span></button>'
     services = "".join(f"<li><h3>{E(pick(s[0], lang))}</h3><p>{E(pick(s[1], lang))}</p></li>" for s in SERVICES)
     services += f'<li><h3><a href="buyers-engineer/">{t("be_name", lang)}</a></h3><p>{t("be_cta", lang)}</p></li>'
