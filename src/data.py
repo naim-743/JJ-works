@@ -23,7 +23,7 @@ PEOPLE = [
 # Facebook pages: (link, (English label, Bangla label))
 FACEBOOK = [
     ("https://www.facebook.com/jjworks.info/", ("JJ Works", "জেজে ওয়ার্কস")),
-    ("https://www.facebook.com/profile.php?id=61570994559265", ("Facebook page 2", "ফেসবুক পেজ ২")),
+    ("https://www.facebook.com/jjworks.marketplace/", ("JJ Works Marketplace", "জেজে ওয়ার্কস মার্কেটপ্লেস")),
     ("https://www.facebook.com/jjsportszone/", ("JJ Sports Zone", "জেজে স্পোর্টস জোন")),
 ]
 
